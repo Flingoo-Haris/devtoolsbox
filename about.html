@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About DevToolbox — Private, Client-Side Tools</title>
+<meta name="description" content="DevToolbox is a free collection of 12 developer tools that run entirely in your browser. No accounts, no uploads, no tracking of what you paste.">
+<link rel="canonical" href="https://www.devtoolbox.example/about.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="About DevToolbox — Private, Client-Side Tools">
+<meta property="og:description" content="DevToolbox is a free collection of 12 developer tools that run entirely in your browser. No accounts, no uploads, no tracking of what you paste.">
+<meta property="og:url" content="https://www.devtoolbox.example/about.html">
+<meta property="og:site_name" content="DevToolbox">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="About DevToolbox — Private, Client-Side Tools">
+<meta name="twitter:description" content="DevToolbox is a free collection of 12 developer tools that run entirely in your browser. No accounts, no uploads, no tracking of what you paste.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="index.html" aria-label="DevToolbox home">
+    <svg class="mark" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="22" height="22" rx="3" stroke-width="1.6"/>
+      <path d="M8 9L5.5 13L8 17M18 9L20.5 13L18 17M14.5 7L11.5 19" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    DevToolbox
+  </a>
+  <div class="topbar-search">
+    <input type="search" id="tool-search" placeholder="Search tools&hellip; (JSON, JWT, UUID, cron&hellip;)" aria-label="Search tools">
+  </div>
+  <nav class="topbar-links">
+    <a href="index.html#all-tools">All tools</a>
+    <a href="about.html">About</a>
+  </nav>
+  <button class="nav-toggle" aria-label="Toggle tool menu">&#9776;</button>
+</header>
+<div class="shell">
+  <aside class="sidebar"><nav aria-label="Tool categories">
+<h4>Format & Convert</h4>
+<a href="tools/json-formatter.html">JSON Formatter</a>
+<a href="tools/sql-formatter.html">SQL Formatter</a>
+<a href="tools/yaml-properties-converter.html">YAML ↔ Properties</a>
+<a href="tools/base64-encoder-decoder.html">Base64 Encode/Decode</a>
+<a href="tools/timestamp-converter.html">Timestamp Converter</a>
+<h4>Generate</h4>
+<a href="tools/uuid-generator.html">UUID Generator</a>
+<a href="tools/hash-generator.html">Hash Generator</a>
+<h4>Test & Debug</h4>
+<a href="tools/jwt-decoder.html">JWT Decoder</a>
+<a href="tools/regex-tester.html">Regex Tester</a>
+<a href="tools/cron-parser.html">Cron Parser</a>
+<a href="tools/api-mocker.html">API Mocker / Tester</a>
+<a href="tools/diff-checker.html">Diff Checker</a>
+</nav></aside>
+  <main id="main">
+<div class="tool-header">
+  <div class="crumbs"><a href="index.html">Home</a> &rsaquo; <span>About</span></div>
+  <h1>About DevToolbox</h1>
+</div>
+<section class="prose">
+  <p>DevToolbox is a small collection of 12 developer utilities, built to solve one recurring annoyance:
+  the tools developers reach for most often — a JSON formatter, a JWT decoder, a UUID generator —
+  are usually scattered across different sites, most of which quietly upload whatever you paste to a server.</p>
+  <p>Every tool here runs entirely client-side in JavaScript. There is no backend that sees your input, no
+  account, and no tracking of what you paste. You can verify this yourself: open your browser's network tab
+  while using any tool and you'll see no request carrying your data anywhere.</p>
+  <h2>All tools</h2>
+  <ul><li><a href="tools/json-formatter.html">JSON Formatter</a> — Paste any JSON, get it validated, pretty-printed or minified instantly. Everything runs locally in your browser — nothing is sent to a server.</li><li><a href="tools/sql-formatter.html">SQL Formatter</a> — Paste a messy SQL query and get it reformatted with clause-per-line indentation and uppercase keywords.</li><li><a href="tools/yaml-properties-converter.html">application.properties ↔ YAML Converter</a> — Convert Spring Boot's application.properties to application.yml format, or the other way around.</li><li><a href="tools/base64-encoder-decoder.html">Base64 Encoder / Decoder</a> — Convert plain text to Base64 or decode a Base64 string back to readable text — handles UTF-8 (emoji, accents, non-Latin text) correctly.</li><li><a href="tools/timestamp-converter.html">Unix Timestamp Converter</a> — Convert between Unix epoch timestamps and human-readable dates, both directions, in your local timezone and UTC.</li><li><a href="tools/uuid-generator.html">UUID Generator</a> — Generate cryptographically random UUIDs (v4) or time-ordered UUIDs (v7) — one at a time or in bulk.</li><li><a href="tools/hash-generator.html">Hash Generator</a> — Hash any text with MD5, SHA-1, SHA-256, SHA-384 or SHA-512 — computed locally in your browser using the Web Crypto API (and a built-in MD5 implementation).</li><li><a href="tools/jwt-decoder.html">JWT Decoder</a> — Paste a JSON Web Token to decode its header and payload, and check whether it has expired. Decoding happens locally — your token is never sent anywhere.</li><li><a href="tools/regex-tester.html">Regex Tester</a> — Test a regular expression against sample text with live match highlighting, capture groups, and a find-and-replace preview.</li><li><a href="tools/cron-parser.html">Cron Expression Parser</a> — Paste a cron expression to get a plain-English explanation and a preview of its next run times. Supports standard 5-field cron and Spring's 6-field (with seconds) format.</li><li><a href="tools/api-mocker.html">API Response Mocker & Tester</a> — Two tools in one: generate fake JSON data from a simple field schema, and send a real HTTP request to any endpoint to inspect the response.</li><li><a href="tools/diff-checker.html">Text & JSON Diff Checker</a> — Compare two versions of text or JSON side by side, with additions and deletions highlighted line by line.</li></ul>
+</section>
+</main>
+</div>
+<footer>
+  <div>&copy; <span id="y"></span> DevToolbox &mdash; free tools for developers. Runs entirely in your browser; nothing you paste is uploaded.</div>
+  <div><a href="about.html">About</a> &middot; <a href="index.html#all-tools">All tools</a></div>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+<script src="js/common.js"></script>
+</body>
+</html>

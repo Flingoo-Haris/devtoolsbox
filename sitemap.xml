@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.devtoolbox.example/index.html</loc><lastmod>2026-09-27</lastmod><priority>1.0</priority></url>
+  <url><loc>https://www.devtoolbox.example/about.html</loc><lastmod>2026-09-27</lastmod><priority>0.5</priority></url>
+  <url><loc>https://www.devtoolbox.example/tools/json-formatter.html</loc><lastmod>2026-09-27</lastmod><priority>0.9</priority></url>
+  <url><loc>https://www.devtoolbox.example/tools/sql-formatter.html</loc><lastmod>2026-09-27</lastmod><priority>0.9</priority></url>
+  <url><loc>https://www.devtoolbox.example/tools/yaml-properties-converter.html</loc><lastmod>2026-09-27</lastmod><priority>0.9</priority></url>
+  <url><loc>https://www.devtoolbox.example/tools/base64-encoder-decoder.html</loc><lastmod>2026-09-27</lastmod><priority>0.9</priority></url>
+  <url><loc>https://www.devtoolbox.example/tools/timestamp-converter.html</loc><lastmod>2026-09-27</lastmod><priority>0.9</priority></url>
+  <url><loc>https://www.devtoolbox.example/tools/uuid-generator.html</loc><lastmod>2026-09-27</lastmod><priority>0.9</priority></url>
+  <url><loc>https://www.devtoolbox.example/tools/hash-generator.html</loc><lastmod>2026-09-27</lastmod><priority>0.9</priority></url>
+  <url><loc>https://www.devtoolbox.example/tools/jwt-decoder.html</loc><lastmod>2026-09-27</lastmod><priority>0.9</priority></url>
+  <url><loc>https://www.devtoolbox.example/tools/regex-tester.html</loc><lastmod>2026-09-27</lastmod><priority>0.9</priority></url>
+  <url><loc>https://www.devtoolbox.example/tools/cron-parser.html</loc><lastmod>2026-09-27</lastmod><priority>0.9</priority></url>
+  <url><loc>https://www.devtoolbox.example/tools/api-mocker.html</loc><lastmod>2026-09-27</lastmod><priority>0.9</priority></url>
+  <url><loc>https://www.devtoolbox.example/tools/diff-checker.html</loc><lastmod>2026-09-27</lastmod><priority>0.9</priority></url>
+</urlset>
