@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unix Timestamp Converter Online Free | DevToolbox</title>
+<meta name="description" content="Convert Unix timestamps to human-readable dates and back. Supports seconds and milliseconds, shows local time, UTC, ISO 8601 and relative time.">
+<link rel="canonical" href="https://www.devtoolbox.example/tools/timestamp-converter.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Unix Timestamp Converter Online Free | DevToolbox">
+<meta property="og:description" content="Convert Unix timestamps to human-readable dates and back. Supports seconds and milliseconds, shows local time, UTC, ISO 8601 and relative time.">
+<meta property="og:url" content="https://www.devtoolbox.example/tools/timestamp-converter.html">
+<meta property="og:site_name" content="DevToolbox">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Unix Timestamp Converter Online Free | DevToolbox">
+<meta name="twitter:description" content="Convert Unix timestamps to human-readable dates and back. Supports seconds and milliseconds, shows local time, UTC, ISO 8601 and relative time.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Unix Timestamp Converter - DevToolbox", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any (runs in browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://www.devtoolbox.example/tools/timestamp-converter.html", "description": "Convert Unix timestamps to human-readable dates and back. Supports seconds and milliseconds, shows local time, UTC, ISO 8601 and relative time."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I know if my timestamp is in seconds or milliseconds?", "acceptedAnswer": {"@type": "Answer", "text": "This tool auto-detects: Unix timestamps in seconds are 10 digits until the year 2286, while millisecond timestamps are 13 digits for the same range — the tool picks based on magnitude."}}, {"@type": "Question", "name": "What timezone are the results in?", "acceptedAnswer": {"@type": "Answer", "text": "“Local time” uses your browser/device's configured timezone. UTC and ISO 8601 are timezone-independent (ISO 8601 is shown in UTC with a <code>Z</code> suffix)."}}, {"@type": "Question", "name": "Why do Java/Spring APIs sometimes expect milliseconds and sometimes seconds?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the library: <code>java.time.Instant.getEpochSecond()</code> gives seconds, while <code>System.currentTimeMillis()</code> and JavaScript's <code>Date.now()</code> give milliseconds — always check the field's documented unit before comparing values."}}, {"@type": "Question", "name": "Can this handle dates before 1970?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — negative Unix timestamps represent dates before January 1, 1970 UTC, and are supported."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.devtoolbox.example/index.html"}, {"@type": "ListItem", "position": 2, "name": "Unix Timestamp Converter", "item": "https://www.devtoolbox.example/tools/timestamp-converter.html"}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="DevToolbox home">
+    <svg class="mark" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="22" height="22" rx="3" stroke-width="1.6"/>
+      <path d="M8 9L5.5 13L8 17M18 9L20.5 13L18 17M14.5 7L11.5 19" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    DevToolbox
+  </a>
+  <div class="topbar-search">
+    <input type="search" id="tool-search" placeholder="Search tools&hellip; (JSON, JWT, UUID, cron&hellip;)" aria-label="Search tools">
+  </div>
+  <nav class="topbar-links">
+    <a href="../index.html#all-tools">All tools</a>
+    <a href="../about.html">About</a>
+  </nav>
+  <button class="nav-toggle" aria-label="Toggle tool menu">&#9776;</button>
+</header>
+<div class="shell">
+  <aside class="sidebar"><nav aria-label="Tool categories">
+<h4>Format & Convert</h4>
+<a href="../tools/json-formatter.html">JSON Formatter</a>
+<a href="../tools/sql-formatter.html">SQL Formatter</a>
+<a href="../tools/yaml-properties-converter.html">YAML ↔ Properties</a>
+<a href="../tools/base64-encoder-decoder.html">Base64 Encode/Decode</a>
+<a href="../tools/timestamp-converter.html" class="active">Timestamp Converter</a>
+<h4>Generate</h4>
+<a href="../tools/uuid-generator.html">UUID Generator</a>
+<a href="../tools/hash-generator.html">Hash Generator</a>
+<h4>Test & Debug</h4>
+<a href="../tools/jwt-decoder.html">JWT Decoder</a>
+<a href="../tools/regex-tester.html">Regex Tester</a>
+<a href="../tools/cron-parser.html">Cron Parser</a>
+<a href="../tools/api-mocker.html">API Mocker / Tester</a>
+<a href="../tools/diff-checker.html">Diff Checker</a>
+</nav></aside>
+  <main id="main">
+    <div class="tool-header">
+      <div class="crumbs"><a href="../index.html">Home</a> &rsaquo; <span>Unix Timestamp Converter</span></div>
+      <h1>Unix Timestamp Converter</h1>
+      <p class="lede">Convert between Unix epoch timestamps and human-readable dates, both directions, in your local timezone and UTC.</p>
+      <div class="badge-row"><span class="badge">Seconds & ms</span><span class="badge">UTC & local</span><span class="badge">ISO 8601</span></div>
+    </div>
+
+    
+<div class="grid-2">
+  <div class="panel">
+    <label for="ts-in">Unix timestamp</label>
+    <input id="ts-in" type="text" class="mono" placeholder="1700000000">
+    <div class="btn-row">
+      <button class="primary" id="ts-to-date">Convert to date</button>
+      <button class="ghost" id="ts-now">Use current time</button>
+    </div>
+    <table class="kv" id="ts-out-table"></table>
+  </div>
+  <div class="panel">
+    <label for="date-in">Date &amp; time (your local timezone)</label>
+    <input id="date-in" type="datetime-local" step="1">
+    <div class="btn-row">
+      <button class="primary" id="date-to-ts">Convert to timestamp</button>
+    </div>
+    <table class="kv" id="date-out-table"></table>
+  </div>
+</div>
+<div id="ts-status" class="status" role="status"></div>
+
+
+    <section class="prose">
+      <h2>How to use the unix Timestamp Converter</h2>
+      <ol><li>To convert a Unix timestamp to a date, paste it (seconds or milliseconds — detected automatically) and click Convert.</li><li>To go the other way, pick a date and time in the picker and click Convert to timestamp.</li><li>Results include local time, UTC, ISO 8601 format, and a relative description (e.g. “3 hours ago”).</li><li>Use “Use current time” for a quick “what's the timestamp right now” lookup.</li></ol>
+      <h2>Frequently asked questions</h2>
+      <div class="faq-item"><h3>How do I know if my timestamp is in seconds or milliseconds?</h3><p>This tool auto-detects: Unix timestamps in seconds are 10 digits until the year 2286, while millisecond timestamps are 13 digits for the same range — the tool picks based on magnitude.</p></div><div class="faq-item"><h3>What timezone are the results in?</h3><p>“Local time” uses your browser/device's configured timezone. UTC and ISO 8601 are timezone-independent (ISO 8601 is shown in UTC with a <code>Z</code> suffix).</p></div><div class="faq-item"><h3>Why do Java/Spring APIs sometimes expect milliseconds and sometimes seconds?</h3><p>It depends on the library: <code>java.time.Instant.getEpochSecond()</code> gives seconds, while <code>System.currentTimeMillis()</code> and JavaScript's <code>Date.now()</code> give milliseconds — always check the field's documented unit before comparing values.</p></div><div class="faq-item"><h3>Can this handle dates before 1970?</h3><p>Yes — negative Unix timestamps represent dates before January 1, 1970 UTC, and are supported.</p></div>
+    </section>
+
+    <section class="related">
+      <h2>Related tools</h2>
+      <div class="cards"><a class="card" href="json-formatter.html"><span class="tag">Format & Convert</span><h3>JSON Formatter</h3><p>Paste any JSON, get it validated, pretty-printed or minified instantly. Everythi&hellip;</p></a><a class="card" href="sql-formatter.html"><span class="tag">Format & Convert</span><h3>SQL Formatter</h3><p>Paste a messy SQL query and get it reformatted with clause-per-line indentation &hellip;</p></a><a class="card" href="yaml-properties-converter.html"><span class="tag">Format & Convert</span><h3>application.properties ↔ YAML Converter</h3><p>Convert Spring Boot's <code>application.properties</code> to <code>application.y&hellip;</p></a></div>
+    </section>
+  </main>
+</div>
+<footer>
+  <div>&copy; <span id="y"></span> DevToolbox &mdash; free tools for developers. Runs entirely in your browser; nothing you paste is uploaded.</div>
+  <div><a href="../about.html">About</a> &middot; <a href="../index.html#all-tools">All tools</a></div>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+<script src="../js/common.js"></script>
+<script>
+
+(function () {
+  function relative(ms) {
+    var diff = (ms - Date.now()) / 1000;
+    var future = diff > 0;
+    diff = Math.abs(diff);
+    var units = [['year',31536000],['month',2592000],['day',86400],['hour',3600],['minute',60],['second',1]];
+    for (var i = 0; i < units.length; i++) {
+      var v = Math.floor(diff / units[i][1]);
+      if (v >= 1) return v + ' ' + units[i][0] + (v === 1 ? '' : 's') + ' ' + (future ? 'from now' : 'ago');
+    }
+    return 'just now';
+  }
+
+  document.getElementById('ts-to-date').addEventListener('click', function () {
+    var raw = document.getElementById('ts-in').value.trim();
+    var table = document.getElementById('ts-out-table');
+    var status = document.getElementById('ts-status');
+    if (!/^-?\d+$/.test(raw)) { setStatus(status, 'Enter a numeric Unix timestamp.', false); table.innerHTML = ''; return; }
+    var num = Number(raw);
+    var ms = Math.abs(num) > 9999999999 ? num : num * 1000; // 10-digit = seconds, else ms
+    var d = new Date(ms);
+    if (isNaN(d.getTime())) { setStatus(status, 'That timestamp is out of range.', false); table.innerHTML = ''; return; }
+    table.innerHTML = [
+      ['Detected unit', Math.abs(num) > 9999999999 ? 'milliseconds' : 'seconds'],
+      ['Local time', d.toLocaleString()],
+      ['UTC', d.toUTCString()],
+      ['ISO 8601', d.toISOString()],
+      ['Relative', relative(ms)],
+    ].map(function (r) { return '<tr><th>' + r[0] + '</th><td>' + r[1] + '</td></tr>'; }).join('');
+    setStatus(status, 'Converted.', true);
+  });
+
+  document.getElementById('ts-now').addEventListener('click', function () {
+    document.getElementById('ts-in').value = Math.floor(Date.now() / 1000);
+    document.getElementById('ts-to-date').click();
+  });
+
+  document.getElementById('date-to-ts').addEventListener('click', function () {
+    var val = document.getElementById('date-in').value;
+    var table = document.getElementById('date-out-table');
+    var status = document.getElementById('ts-status');
+    if (!val) { setStatus(status, 'Pick a date and time first.', false); table.innerHTML = ''; return; }
+    var d = new Date(val);
+    if (isNaN(d.getTime())) { setStatus(status, 'Invalid date.', false); table.innerHTML = ''; return; }
+    table.innerHTML = [
+      ['Unix seconds', Math.floor(d.getTime() / 1000)],
+      ['Unix milliseconds', d.getTime()],
+      ['ISO 8601', d.toISOString()],
+      ['UTC', d.toUTCString()],
+    ].map(function (r) { return '<tr><th>' + r[0] + '</th><td>' + r[1] + '</td></tr>'; }).join('');
+    setStatus(status, 'Converted.', true);
+  });
+
+  // pre-fill with now
+  document.getElementById('ts-now').click();
+  var now = new Date(); now.setMilliseconds(0);
+  document.getElementById('date-in').value = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 19);
+})();
+
+</script>
+</body>
+</html>

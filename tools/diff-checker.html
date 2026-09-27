@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Text & JSON Diff Checker Online Free | DevToolbox</title>
+<meta name="description" content="Compare two blocks of text or JSON line by line and see additions and deletions highlighted. Free, runs entirely in your browser.">
+<link rel="canonical" href="https://www.devtoolbox.example/tools/diff-checker.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Text & JSON Diff Checker Online Free | DevToolbox">
+<meta property="og:description" content="Compare two blocks of text or JSON line by line and see additions and deletions highlighted. Free, runs entirely in your browser.">
+<meta property="og:url" content="https://www.devtoolbox.example/tools/diff-checker.html">
+<meta property="og:site_name" content="DevToolbox">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Text & JSON Diff Checker Online Free | DevToolbox">
+<meta name="twitter:description" content="Compare two blocks of text or JSON line by line and see additions and deletions highlighted. Free, runs entirely in your browser.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Text & JSON Diff Checker - DevToolbox", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any (runs in browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://www.devtoolbox.example/tools/diff-checker.html", "description": "Compare two blocks of text or JSON line by line and see additions and deletions highlighted. Free, runs entirely in your browser."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does it diff word-by-word or line-by-line?", "acceptedAnswer": {"@type": "Answer", "text": "Line-by-line, using a classic longest-common-subsequence algorithm — the same family of algorithm used by tools like <code>diff</code> and Git."}}, {"@type": "Question", "name": "Why does my JSON show as all different when only one value changed?", "acceptedAnswer": {"@type": "Answer", "text": "That usually means the two sides have different formatting or key order. Enable “Normalize as JSON before comparing” so both are re-serialized with the same indentation before diffing."}}, {"@type": "Question", "name": "Is there a size limit?", "acceptedAnswer": {"@type": "Answer", "text": "No hard limit, but very large inputs (many thousands of lines) may be slow since the comparison runs in your browser's main thread."}}, {"@type": "Question", "name": "Can I use this to compare two API responses?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — paste one response into each box, enable JSON normalization, and Compare to quickly spot which fields differ."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.devtoolbox.example/index.html"}, {"@type": "ListItem", "position": 2, "name": "Text & JSON Diff Checker", "item": "https://www.devtoolbox.example/tools/diff-checker.html"}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="DevToolbox home">
+    <svg class="mark" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="22" height="22" rx="3" stroke-width="1.6"/>
+      <path d="M8 9L5.5 13L8 17M18 9L20.5 13L18 17M14.5 7L11.5 19" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    DevToolbox
+  </a>
+  <div class="topbar-search">
+    <input type="search" id="tool-search" placeholder="Search tools&hellip; (JSON, JWT, UUID, cron&hellip;)" aria-label="Search tools">
+  </div>
+  <nav class="topbar-links">
+    <a href="../index.html#all-tools">All tools</a>
+    <a href="../about.html">About</a>
+  </nav>
+  <button class="nav-toggle" aria-label="Toggle tool menu">&#9776;</button>
+</header>
+<div class="shell">
+  <aside class="sidebar"><nav aria-label="Tool categories">
+<h4>Format & Convert</h4>
+<a href="../tools/json-formatter.html">JSON Formatter</a>
+<a href="../tools/sql-formatter.html">SQL Formatter</a>
+<a href="../tools/yaml-properties-converter.html">YAML ↔ Properties</a>
+<a href="../tools/base64-encoder-decoder.html">Base64 Encode/Decode</a>
+<a href="../tools/timestamp-converter.html">Timestamp Converter</a>
+<h4>Generate</h4>
+<a href="../tools/uuid-generator.html">UUID Generator</a>
+<a href="../tools/hash-generator.html">Hash Generator</a>
+<h4>Test & Debug</h4>
+<a href="../tools/jwt-decoder.html">JWT Decoder</a>
+<a href="../tools/regex-tester.html">Regex Tester</a>
+<a href="../tools/cron-parser.html">Cron Parser</a>
+<a href="../tools/api-mocker.html">API Mocker / Tester</a>
+<a href="../tools/diff-checker.html" class="active">Diff Checker</a>
+</nav></aside>
+  <main id="main">
+    <div class="tool-header">
+      <div class="crumbs"><a href="../index.html">Home</a> &rsaquo; <span>Text & JSON Diff Checker</span></div>
+      <h1>Text & JSON Diff Checker</h1>
+      <p class="lede">Compare two versions of text or JSON side by side, with additions and deletions highlighted line by line.</p>
+      <div class="badge-row"><span class="badge">Line diff</span><span class="badge">JSON-aware</span><span class="badge">No upload</span></div>
+    </div>
+
+    
+<div class="grid-2">
+  <div class="panel">
+    <label for="diff-a">Original</label>
+    <textarea id="diff-a" spellcheck="false" style="min-height:220px;"></textarea>
+  </div>
+  <div class="panel">
+    <label for="diff-b">Changed</label>
+    <textarea id="diff-b" spellcheck="false" style="min-height:220px;"></textarea>
+  </div>
+</div>
+<div class="panel">
+  <div class="btn-row">
+    <button class="primary" id="diff-run">Compare</button>
+    <label style="margin:0;"><input id="diff-json" type="checkbox" style="width:auto;"> Normalize as JSON before comparing</label>
+  </div>
+  <div id="diff-status" class="status" role="status"></div>
+  <div class="panel-title" style="margin-top:6px;"><span>Diff</span></div>
+  <pre class="code-box" id="diff-out" style="line-height:1.65;"></pre>
+</div>
+
+
+    <section class="prose">
+      <h2>How to use the text & JSON Diff Checker</h2>
+      <ol><li>Paste the original version on the left and the changed version on the right.</li><li>Click Compare to see a unified line-by-line diff — green for additions, red for removals.</li><li>For JSON, tick “Normalize as JSON before comparing” so both sides are pretty-printed the same way first — this avoids false differences caused only by whitespace or key order.</li><li>Use it to review config changes, compare API responses, or check two versions of a file before merging.</li></ol>
+      <h2>Frequently asked questions</h2>
+      <div class="faq-item"><h3>Does it diff word-by-word or line-by-line?</h3><p>Line-by-line, using a classic longest-common-subsequence algorithm — the same family of algorithm used by tools like <code>diff</code> and Git.</p></div><div class="faq-item"><h3>Why does my JSON show as all different when only one value changed?</h3><p>That usually means the two sides have different formatting or key order. Enable “Normalize as JSON before comparing” so both are re-serialized with the same indentation before diffing.</p></div><div class="faq-item"><h3>Is there a size limit?</h3><p>No hard limit, but very large inputs (many thousands of lines) may be slow since the comparison runs in your browser's main thread.</p></div><div class="faq-item"><h3>Can I use this to compare two API responses?</h3><p>Yes — paste one response into each box, enable JSON normalization, and Compare to quickly spot which fields differ.</p></div>
+    </section>
+
+    <section class="related">
+      <h2>Related tools</h2>
+      <div class="cards"><a class="card" href="jwt-decoder.html"><span class="tag">Test & Debug</span><h3>JWT Decoder</h3><p>Paste a JSON Web Token to decode its header and payload, and check whether it ha&hellip;</p></a><a class="card" href="regex-tester.html"><span class="tag">Test & Debug</span><h3>Regex Tester</h3><p>Test a regular expression against sample text with live match highlighting, capt&hellip;</p></a><a class="card" href="cron-parser.html"><span class="tag">Test & Debug</span><h3>Cron Expression Parser</h3><p>Paste a cron expression to get a plain-English explanation and a preview of its &hellip;</p></a></div>
+    </section>
+  </main>
+</div>
+<footer>
+  <div>&copy; <span id="y"></span> DevToolbox &mdash; free tools for developers. Runs entirely in your browser; nothing you paste is uploaded.</div>
+  <div><a href="../about.html">About</a> &middot; <a href="../index.html#all-tools">All tools</a></div>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+<script src="../js/common.js"></script>
+<script>
+
+(function () {
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+  // Classic LCS-based line diff
+  function diffLines(a, b) {
+    var n = a.length, m = b.length;
+    var dp = new Array(n + 1);
+    for (var i = 0; i <= n; i++) dp[i] = new Int32Array(m + 1);
+    for (i = n - 1; i >= 0; i--) {
+      for (var j = m - 1; j >= 0; j--) {
+        dp[i][j] = a[i] === b[j] ? dp[i + 1][j + 1] + 1 : Math.max(dp[i + 1][j], dp[i][j + 1]);
+      }
+    }
+    var out = []; i = 0; var jj = 0;
+    while (i < n && jj < m) {
+      if (a[i] === b[jj]) { out.push({ t: 'eq', v: a[i] }); i++; jj++; }
+      else if (dp[i + 1][jj] >= dp[i][jj + 1]) { out.push({ t: 'del', v: a[i] }); i++; }
+      else { out.push({ t: 'add', v: b[jj] }); jj++; }
+    }
+    while (i < n) { out.push({ t: 'del', v: a[i] }); i++; }
+    while (jj < m) { out.push({ t: 'add', v: b[jj] }); jj++; }
+    return out;
+  }
+
+  document.getElementById('diff-run').addEventListener('click', function () {
+    var status = document.getElementById('diff-status');
+    var out = document.getElementById('diff-out');
+    var aRaw = document.getElementById('diff-a').value;
+    var bRaw = document.getElementById('diff-b').value;
+    if (document.getElementById('diff-json').checked) {
+      try { aRaw = JSON.stringify(JSON.parse(aRaw), null, 2); } catch (e) { setStatus(status, 'Left side is not valid JSON: ' + e.message, false); return; }
+      try { bRaw = JSON.stringify(JSON.parse(bRaw), null, 2); } catch (e) { setStatus(status, 'Right side is not valid JSON: ' + e.message, false); return; }
+    }
+    var a = aRaw.split('\n'), b = bRaw.split('\n');
+    var d = diffLines(a, b);
+    var added = 0, removed = 0;
+    var html = d.map(function (line) {
+      if (line.t === 'add') { added++; return '<span style="display:block; background:#4CC38A22; color:#4CC38A;">+ ' + esc(line.v) + '</span>'; }
+      if (line.t === 'del') { removed++; return '<span style="display:block; background:#E2584F22; color:#E2584F;">- ' + esc(line.v) + '</span>'; }
+      return '<span style="display:block; color:var(--muted);">&nbsp; ' + esc(line.v) + '</span>';
+    }).join('');
+    out.innerHTML = html || '<span style="color:var(--muted);">No content to compare.</span>';
+    setStatus(status, added === 0 && removed === 0 ? 'Identical.' : ('+' + added + ' line(s) added, -' + removed + ' line(s) removed.'), true);
+  });
+})();
+
+</script>
+</body>
+</html>

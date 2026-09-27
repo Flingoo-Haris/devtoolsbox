@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SQL Formatter Online — Beautify SQL Free | DevToolbox</title>
+<meta name="description" content="Format and beautify SQL queries online for free. Indents clauses, uppercases keywords and lines up columns — works with MySQL, PostgreSQL and standard SQL.">
+<link rel="canonical" href="https://www.devtoolbox.example/tools/sql-formatter.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SQL Formatter Online — Beautify SQL Free | DevToolbox">
+<meta property="og:description" content="Format and beautify SQL queries online for free. Indents clauses, uppercases keywords and lines up columns — works with MySQL, PostgreSQL and standard SQL.">
+<meta property="og:url" content="https://www.devtoolbox.example/tools/sql-formatter.html">
+<meta property="og:site_name" content="DevToolbox">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SQL Formatter Online — Beautify SQL Free | DevToolbox">
+<meta name="twitter:description" content="Format and beautify SQL queries online for free. Indents clauses, uppercases keywords and lines up columns — works with MySQL, PostgreSQL and standard SQL.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "SQL Formatter - DevToolbox", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any (runs in browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://www.devtoolbox.example/tools/sql-formatter.html", "description": "Format and beautify SQL queries online for free. Indents clauses, uppercases keywords and lines up columns — works with MySQL, PostgreSQL and standard SQL."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does this validate my SQL syntax?", "acceptedAnswer": {"@type": "Answer", "text": "No — it's a formatter, not a parser or database engine, so it reformats based on recognizable keywords without checking whether the query is semantically valid or would run against a real database."}}, {"@type": "Question", "name": "Which SQL dialects does it support?", "acceptedAnswer": {"@type": "Answer", "text": "It works with standard ANSI SQL and is compatible with MySQL, PostgreSQL, SQL Server and SQLite syntax for common SELECT/INSERT/UPDATE/DELETE statements. Dialect-specific extensions may not be recognized as clause keywords."}}, {"@type": "Question", "name": "Will it change the meaning of my query?", "acceptedAnswer": {"@type": "Answer", "text": "No — it only adjusts whitespace, line breaks and keyword casing. String literals (text inside single quotes) are left untouched."}}, {"@type": "Question", "name": "Can I format stored procedures or multiple statements?", "acceptedAnswer": {"@type": "Answer", "text": "Basic multi-statement input (separated by semicolons) will format each recognizable clause, but complex procedural SQL (PL/SQL, T-SQL blocks) is not specifically handled."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.devtoolbox.example/index.html"}, {"@type": "ListItem", "position": 2, "name": "SQL Formatter", "item": "https://www.devtoolbox.example/tools/sql-formatter.html"}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="DevToolbox home">
+    <svg class="mark" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="22" height="22" rx="3" stroke-width="1.6"/>
+      <path d="M8 9L5.5 13L8 17M18 9L20.5 13L18 17M14.5 7L11.5 19" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    DevToolbox
+  </a>
+  <div class="topbar-search">
+    <input type="search" id="tool-search" placeholder="Search tools&hellip; (JSON, JWT, UUID, cron&hellip;)" aria-label="Search tools">
+  </div>
+  <nav class="topbar-links">
+    <a href="../index.html#all-tools">All tools</a>
+    <a href="../about.html">About</a>
+  </nav>
+  <button class="nav-toggle" aria-label="Toggle tool menu">&#9776;</button>
+</header>
+<div class="shell">
+  <aside class="sidebar"><nav aria-label="Tool categories">
+<h4>Format & Convert</h4>
+<a href="../tools/json-formatter.html">JSON Formatter</a>
+<a href="../tools/sql-formatter.html" class="active">SQL Formatter</a>
+<a href="../tools/yaml-properties-converter.html">YAML ↔ Properties</a>
+<a href="../tools/base64-encoder-decoder.html">Base64 Encode/Decode</a>
+<a href="../tools/timestamp-converter.html">Timestamp Converter</a>
+<h4>Generate</h4>
+<a href="../tools/uuid-generator.html">UUID Generator</a>
+<a href="../tools/hash-generator.html">Hash Generator</a>
+<h4>Test & Debug</h4>
+<a href="../tools/jwt-decoder.html">JWT Decoder</a>
+<a href="../tools/regex-tester.html">Regex Tester</a>
+<a href="../tools/cron-parser.html">Cron Parser</a>
+<a href="../tools/api-mocker.html">API Mocker / Tester</a>
+<a href="../tools/diff-checker.html">Diff Checker</a>
+</nav></aside>
+  <main id="main">
+    <div class="tool-header">
+      <div class="crumbs"><a href="../index.html">Home</a> &rsaquo; <span>SQL Formatter</span></div>
+      <h1>SQL Formatter</h1>
+      <p class="lede">Paste a messy SQL query and get it reformatted with clause-per-line indentation and uppercase keywords.</p>
+      <div class="badge-row"><span class="badge">Indent clauses</span><span class="badge">Uppercase keywords</span><span class="badge">MySQL / Postgres / ANSI</span></div>
+    </div>
+
+    
+<div class="panel">
+  <label for="sql-in">SQL input</label>
+  <textarea id="sql-in" spellcheck="false" placeholder="select id, name, email from users where active = 1 and created_at > '2024-01-01' order by created_at desc limit 20;"></textarea>
+  <div class="btn-row">
+    <button class="primary" id="sql-format">Format</button>
+    <label style="margin:0;"><input id="sql-upper" type="checkbox" checked style="width:auto;"> Uppercase keywords</label>
+    <button class="ghost" id="sql-sample">Load sample</button>
+  </div>
+</div>
+<div class="panel">
+  <div class="panel-title"><span>Formatted</span><button class="small" data-copy-target="#sql-out">Copy</button></div>
+  <pre class="code-box" id="sql-out"></pre>
+</div>
+
+
+    <section class="prose">
+      <h2>How to use the sQL Formatter</h2>
+      <ol><li>Paste any SQL query — SELECT, INSERT, UPDATE, DELETE, or a query with JOINs and subclauses.</li><li>Click Format to break it onto multiple lines, one per clause, with columns listed individually under SELECT.</li><li>Toggle “Uppercase keywords” to normalize keyword casing (<code>select</code> → <code>SELECT</code>) to match common style guides.</li><li>Copy the result straight into your migration file, ORM query, or code review comment.</li></ol>
+      <h2>Frequently asked questions</h2>
+      <div class="faq-item"><h3>Does this validate my SQL syntax?</h3><p>No — it's a formatter, not a parser or database engine, so it reformats based on recognizable keywords without checking whether the query is semantically valid or would run against a real database.</p></div><div class="faq-item"><h3>Which SQL dialects does it support?</h3><p>It works with standard ANSI SQL and is compatible with MySQL, PostgreSQL, SQL Server and SQLite syntax for common SELECT/INSERT/UPDATE/DELETE statements. Dialect-specific extensions may not be recognized as clause keywords.</p></div><div class="faq-item"><h3>Will it change the meaning of my query?</h3><p>No — it only adjusts whitespace, line breaks and keyword casing. String literals (text inside single quotes) are left untouched.</p></div><div class="faq-item"><h3>Can I format stored procedures or multiple statements?</h3><p>Basic multi-statement input (separated by semicolons) will format each recognizable clause, but complex procedural SQL (PL/SQL, T-SQL blocks) is not specifically handled.</p></div>
+    </section>
+
+    <section class="related">
+      <h2>Related tools</h2>
+      <div class="cards"><a class="card" href="json-formatter.html"><span class="tag">Format & Convert</span><h3>JSON Formatter</h3><p>Paste any JSON, get it validated, pretty-printed or minified instantly. Everythi&hellip;</p></a><a class="card" href="yaml-properties-converter.html"><span class="tag">Format & Convert</span><h3>application.properties ↔ YAML Converter</h3><p>Convert Spring Boot's <code>application.properties</code> to <code>application.y&hellip;</p></a><a class="card" href="base64-encoder-decoder.html"><span class="tag">Format & Convert</span><h3>Base64 Encoder / Decoder</h3><p>Convert plain text to Base64 or decode a Base64 string back to readable text — h&hellip;</p></a></div>
+    </section>
+  </main>
+</div>
+<footer>
+  <div>&copy; <span id="y"></span> DevToolbox &mdash; free tools for developers. Runs entirely in your browser; nothing you paste is uploaded.</div>
+  <div><a href="../about.html">About</a> &middot; <a href="../index.html#all-tools">All tools</a></div>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+<script src="../js/common.js"></script>
+<script>
+
+(function () {
+  var input = document.getElementById('sql-in');
+  var out = document.getElementById('sql-out');
+
+  var CLAUSES = ['SELECT','FROM','WHERE','GROUP BY','ORDER BY','HAVING','LIMIT','OFFSET',
+    'INSERT INTO','VALUES','UPDATE','SET','DELETE FROM','UNION ALL','UNION',
+    'LEFT JOIN','RIGHT JOIN','INNER JOIN','FULL JOIN','LEFT OUTER JOIN','RIGHT OUTER JOIN','JOIN','ON'];
+  var KEYWORDS = ['SELECT','FROM','WHERE','AND','OR','NOT','NULL','IS','IN','LIKE','BETWEEN','AS','DISTINCT',
+    'GROUP BY','ORDER BY','BY','HAVING','LIMIT','OFFSET','INSERT INTO','VALUES','UPDATE','SET','DELETE FROM',
+    'UNION ALL','UNION','LEFT JOIN','RIGHT JOIN','INNER JOIN','FULL JOIN','OUTER JOIN','JOIN','ON','ASC','DESC',
+    'CASE','WHEN','THEN','ELSE','END','COUNT','SUM','AVG','MIN','MAX','CREATE TABLE','PRIMARY KEY','FOREIGN KEY',
+    'REFERENCES','DEFAULT','EXISTS','ALL','ANY'];
+
+  function format(sql, upper) {
+    var s = sql.replace(/\s+/g, ' ').trim();
+    // protect string literals so we don't touch their contents
+    var literals = [];
+    s = s.replace(/'[^']*'/g, function (m) { literals.push(m); return '\u0001' + (literals.length - 1) + '\u0001'; });
+
+    CLAUSES.sort(function (a, b) { return b.length - a.length; }).forEach(function (c) {
+      var re = new RegExp('\\s+' + c.replace(/ /g, '\\s+') + '\\b', 'gi');
+      s = s.replace(re, '\n' + c);
+    });
+    s = s.replace(/\s+(AND|OR)\b/gi, '\n  $1');
+
+    if (upper) {
+      KEYWORDS.sort(function (a, b) { return b.length - a.length; }).forEach(function (k) {
+        var re = new RegExp('\\b' + k.replace(/ /g, '\\s+') + '\\b', 'gi');
+        s = s.replace(re, k);
+      });
+    }
+
+    // one column per line inside SELECT ... FROM
+    s = s.replace(/^SELECT\n?([\s\S]*?)\nFROM/mi, function (m, cols) {
+      var list = cols.split(',').map(function (c) { return '  ' + c.trim(); }).join(',\n');
+      return 'SELECT\n' + list + '\nFROM';
+    });
+
+    s = s.split('\n').map(function (line) { return line.trim(); }).filter(Boolean).join('\n');
+    s = s.replace(/\u0001(\d+)\u0001/g, function (_, i) { return literals[Number(i)]; });
+    return s;
+  }
+
+  document.getElementById('sql-format').addEventListener('click', function () {
+    var upper = document.getElementById('sql-upper').checked;
+    out.textContent = input.value.trim() ? format(input.value, upper) : '';
+  });
+  document.getElementById('sql-sample').addEventListener('click', function () {
+    input.value = "select u.id, u.name, u.email, count(o.id) as order_count from users u left join orders o on o.user_id = u.id where u.active = 1 and u.created_at > '2024-01-01' group by u.id, u.name, u.email having count(o.id) > 0 order by order_count desc limit 20;";
+    document.getElementById('sql-format').click();
+  });
+})();
+
+</script>
+</body>
+</html>

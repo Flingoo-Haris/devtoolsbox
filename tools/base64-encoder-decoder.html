@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Base64 Encode & Decode Online Free | DevToolbox</title>
+<meta name="description" content="Encode text to Base64 or decode Base64 back to plain text online, free and instantly. UTF-8 safe, runs entirely in your browser.">
+<link rel="canonical" href="https://www.devtoolbox.example/tools/base64-encoder-decoder.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Base64 Encode & Decode Online Free | DevToolbox">
+<meta property="og:description" content="Encode text to Base64 or decode Base64 back to plain text online, free and instantly. UTF-8 safe, runs entirely in your browser.">
+<meta property="og:url" content="https://www.devtoolbox.example/tools/base64-encoder-decoder.html">
+<meta property="og:site_name" content="DevToolbox">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Base64 Encode & Decode Online Free | DevToolbox">
+<meta name="twitter:description" content="Encode text to Base64 or decode Base64 back to plain text online, free and instantly. UTF-8 safe, runs entirely in your browser.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Base64 Encoder / Decoder - DevToolbox", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any (runs in browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://www.devtoolbox.example/tools/base64-encoder-decoder.html", "description": "Encode text to Base64 or decode Base64 back to plain text online, free and instantly. UTF-8 safe, runs entirely in your browser."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is Base64 used for?", "acceptedAnswer": {"@type": "Answer", "text": "Base64 encodes binary or text data into an ASCII-safe string, commonly used in HTTP Basic Auth headers, email attachments (MIME), data URIs for inline images, and JWT segments."}}, {"@type": "Question", "name": "Why did decoding fail?", "acceptedAnswer": {"@type": "Answer", "text": "Base64 strings must only contain the characters A-Z, a-z, 0-9, +, / and end with 0-2 = padding characters. Whitespace and newlines are stripped automatically, but any other character will cause a decode error."}}, {"@type": "Question", "name": "Is this the same as encryption?", "acceptedAnswer": {"@type": "Answer", "text": "No. Base64 is an encoding, not encryption — anyone can decode it instantly. Never use it to protect secrets."}}, {"@type": "Question", "name": "Does it handle URL-safe Base64 (JWTs)?", "acceptedAnswer": {"@type": "Answer", "text": "This tool encodes standard Base64. For JWT tokens specifically (which use URL-safe Base64), use the dedicated JWT Decoder tool."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.devtoolbox.example/index.html"}, {"@type": "ListItem", "position": 2, "name": "Base64 Encoder / Decoder", "item": "https://www.devtoolbox.example/tools/base64-encoder-decoder.html"}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="DevToolbox home">
+    <svg class="mark" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="22" height="22" rx="3" stroke-width="1.6"/>
+      <path d="M8 9L5.5 13L8 17M18 9L20.5 13L18 17M14.5 7L11.5 19" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    DevToolbox
+  </a>
+  <div class="topbar-search">
+    <input type="search" id="tool-search" placeholder="Search tools&hellip; (JSON, JWT, UUID, cron&hellip;)" aria-label="Search tools">
+  </div>
+  <nav class="topbar-links">
+    <a href="../index.html#all-tools">All tools</a>
+    <a href="../about.html">About</a>
+  </nav>
+  <button class="nav-toggle" aria-label="Toggle tool menu">&#9776;</button>
+</header>
+<div class="shell">
+  <aside class="sidebar"><nav aria-label="Tool categories">
+<h4>Format & Convert</h4>
+<a href="../tools/json-formatter.html">JSON Formatter</a>
+<a href="../tools/sql-formatter.html">SQL Formatter</a>
+<a href="../tools/yaml-properties-converter.html">YAML ↔ Properties</a>
+<a href="../tools/base64-encoder-decoder.html" class="active">Base64 Encode/Decode</a>
+<a href="../tools/timestamp-converter.html">Timestamp Converter</a>
+<h4>Generate</h4>
+<a href="../tools/uuid-generator.html">UUID Generator</a>
+<a href="../tools/hash-generator.html">Hash Generator</a>
+<h4>Test & Debug</h4>
+<a href="../tools/jwt-decoder.html">JWT Decoder</a>
+<a href="../tools/regex-tester.html">Regex Tester</a>
+<a href="../tools/cron-parser.html">Cron Parser</a>
+<a href="../tools/api-mocker.html">API Mocker / Tester</a>
+<a href="../tools/diff-checker.html">Diff Checker</a>
+</nav></aside>
+  <main id="main">
+    <div class="tool-header">
+      <div class="crumbs"><a href="../index.html">Home</a> &rsaquo; <span>Base64 Encoder / Decoder</span></div>
+      <h1>Base64 Encoder / Decoder</h1>
+      <p class="lede">Convert plain text to Base64 or decode a Base64 string back to readable text — handles UTF-8 (emoji, accents, non-Latin text) correctly.</p>
+      <div class="badge-row"><span class="badge">Encode</span><span class="badge">Decode</span><span class="badge">UTF-8 safe</span></div>
+    </div>
+
+    
+<div class="grid-2">
+  <div class="panel">
+    <label for="b64-plain">Plain text</label>
+    <textarea id="b64-plain" spellcheck="false" placeholder="Hello, world!"></textarea>
+    <div class="btn-row">
+      <button class="primary" id="b64-encode">Encode &rarr;</button>
+      <button class="ghost" id="b64-clear">Clear both</button>
+    </div>
+  </div>
+  <div class="panel">
+    <label for="b64-encoded">Base64</label>
+    <textarea id="b64-encoded" spellcheck="false" placeholder="SGVsbG8sIHdvcmxkIQ=="></textarea>
+    <div class="btn-row">
+      <button class="primary" id="b64-decode">&larr; Decode</button>
+      <button class="small" data-copy-target="#b64-encoded">Copy Base64</button>
+    </div>
+  </div>
+</div>
+<div id="b64-status" class="status" role="status"></div>
+
+
+    <section class="prose">
+      <h2>How to use the base64 Encoder / Decoder</h2>
+      <ol><li>Type or paste plain text on the left, then click “Encode” to get its Base64 representation on the right.</li><li>Or paste a Base64 string on the right and click “Decode” to reveal the original text on the left.</li><li>The tool encodes/decodes with UTF-8 first, so emoji, accented characters and non-Latin scripts round-trip correctly.</li><li>Use Copy to grab the Base64 value for embedding in a URL, config file, Basic-Auth header or data URI.</li></ol>
+      <h2>Frequently asked questions</h2>
+      <div class="faq-item"><h3>What is Base64 used for?</h3><p>Base64 encodes binary or text data into an ASCII-safe string, commonly used in HTTP Basic Auth headers, email attachments (MIME), data URIs for inline images, and JWT segments.</p></div><div class="faq-item"><h3>Why did decoding fail?</h3><p>Base64 strings must only contain the characters A-Z, a-z, 0-9, +, / and end with 0-2 = padding characters. Whitespace and newlines are stripped automatically, but any other character will cause a decode error.</p></div><div class="faq-item"><h3>Is this the same as encryption?</h3><p>No. Base64 is an encoding, not encryption — anyone can decode it instantly. Never use it to protect secrets.</p></div><div class="faq-item"><h3>Does it handle URL-safe Base64 (JWTs)?</h3><p>This tool encodes standard Base64. For JWT tokens specifically (which use URL-safe Base64), use the dedicated JWT Decoder tool.</p></div>
+    </section>
+
+    <section class="related">
+      <h2>Related tools</h2>
+      <div class="cards"><a class="card" href="json-formatter.html"><span class="tag">Format & Convert</span><h3>JSON Formatter</h3><p>Paste any JSON, get it validated, pretty-printed or minified instantly. Everythi&hellip;</p></a><a class="card" href="sql-formatter.html"><span class="tag">Format & Convert</span><h3>SQL Formatter</h3><p>Paste a messy SQL query and get it reformatted with clause-per-line indentation &hellip;</p></a><a class="card" href="yaml-properties-converter.html"><span class="tag">Format & Convert</span><h3>application.properties ↔ YAML Converter</h3><p>Convert Spring Boot's <code>application.properties</code> to <code>application.y&hellip;</p></a></div>
+    </section>
+  </main>
+</div>
+<footer>
+  <div>&copy; <span id="y"></span> DevToolbox &mdash; free tools for developers. Runs entirely in your browser; nothing you paste is uploaded.</div>
+  <div><a href="../about.html">About</a> &middot; <a href="../index.html#all-tools">All tools</a></div>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+<script src="../js/common.js"></script>
+<script>
+
+(function () {
+  var plain = document.getElementById('b64-plain');
+  var enc = document.getElementById('b64-encoded');
+  var status = document.getElementById('b64-status');
+
+  function toBase64(str) {
+    return btoa(unescape(encodeURIComponent(str)));
+  }
+  function fromBase64(str) {
+    return decodeURIComponent(escape(atob(str.replace(/\s+/g, ''))));
+  }
+
+  document.getElementById('b64-encode').addEventListener('click', function () {
+    try {
+      enc.value = toBase64(plain.value);
+      setStatus(status, 'Encoded ' + plain.value.length + ' characters.', true);
+    } catch (e) { setStatus(status, 'Could not encode: ' + e.message, false); }
+  });
+
+  document.getElementById('b64-decode').addEventListener('click', function () {
+    try {
+      plain.value = fromBase64(enc.value);
+      setStatus(status, 'Decoded successfully.', true);
+    } catch (e) { setStatus(status, 'Invalid Base64 string: ' + e.message, false); }
+  });
+
+  document.getElementById('b64-clear').addEventListener('click', function () {
+    plain.value = ''; enc.value = ''; setStatus(status, '', true);
+  });
+})();
+
+</script>
+</body>
+</html>

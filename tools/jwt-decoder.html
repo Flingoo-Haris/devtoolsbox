@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JWT Decoder Online Free | DevToolbox</title>
+<meta name="description" content="Paste a JWT to instantly decode its header and payload, check expiry, and inspect claims. Free, client-side only — your token never leaves your browser.">
+<link rel="canonical" href="https://www.devtoolbox.example/tools/jwt-decoder.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="JWT Decoder Online Free | DevToolbox">
+<meta property="og:description" content="Paste a JWT to instantly decode its header and payload, check expiry, and inspect claims. Free, client-side only — your token never leaves your browser.">
+<meta property="og:url" content="https://www.devtoolbox.example/tools/jwt-decoder.html">
+<meta property="og:site_name" content="DevToolbox">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JWT Decoder Online Free | DevToolbox">
+<meta name="twitter:description" content="Paste a JWT to instantly decode its header and payload, check expiry, and inspect claims. Free, client-side only — your token never leaves your browser.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "JWT Decoder - DevToolbox", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any (runs in browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://www.devtoolbox.example/tools/jwt-decoder.html", "description": "Paste a JWT to instantly decode its header and payload, check expiry, and inspect claims. Free, client-side only — your token never leaves your browser."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does this tool verify the JWT signature?", "acceptedAnswer": {"@type": "Answer", "text": "No, by design. Verifying a signature requires the secret (HMAC) or public key (RSA/EC) used to sign it, and that key should never be typed into a third-party website. This tool only decodes the header and payload, which are just Base64URL — not encrypted."}}, {"@type": "Question", "name": "Is my token sent to a server?", "acceptedAnswer": {"@type": "Answer", "text": "No. Decoding uses your browser's built-in <code>atob</code> and JSON parsing — the token never leaves your machine or hits a network request."}}, {"@type": "Question", "name": "Why do I see garbled characters in the payload?", "acceptedAnswer": {"@type": "Answer", "text": "That usually means the string isn't valid Base64URL, or you've pasted only part of the token. Make sure all three segments, separated by two dots, are included."}}, {"@type": "Question", "name": "What's the difference between exp, iat and nbf?", "acceptedAnswer": {"@type": "Answer", "text": "“iat” is when the token was issued, “nbf” (not before) is the earliest it's valid, and “exp” is when it expires — all expressed as Unix timestamps (seconds since 1970)."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.devtoolbox.example/index.html"}, {"@type": "ListItem", "position": 2, "name": "JWT Decoder", "item": "https://www.devtoolbox.example/tools/jwt-decoder.html"}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="DevToolbox home">
+    <svg class="mark" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="22" height="22" rx="3" stroke-width="1.6"/>
+      <path d="M8 9L5.5 13L8 17M18 9L20.5 13L18 17M14.5 7L11.5 19" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    DevToolbox
+  </a>
+  <div class="topbar-search">
+    <input type="search" id="tool-search" placeholder="Search tools&hellip; (JSON, JWT, UUID, cron&hellip;)" aria-label="Search tools">
+  </div>
+  <nav class="topbar-links">
+    <a href="../index.html#all-tools">All tools</a>
+    <a href="../about.html">About</a>
+  </nav>
+  <button class="nav-toggle" aria-label="Toggle tool menu">&#9776;</button>
+</header>
+<div class="shell">
+  <aside class="sidebar"><nav aria-label="Tool categories">
+<h4>Format & Convert</h4>
+<a href="../tools/json-formatter.html">JSON Formatter</a>
+<a href="../tools/sql-formatter.html">SQL Formatter</a>
+<a href="../tools/yaml-properties-converter.html">YAML ↔ Properties</a>
+<a href="../tools/base64-encoder-decoder.html">Base64 Encode/Decode</a>
+<a href="../tools/timestamp-converter.html">Timestamp Converter</a>
+<h4>Generate</h4>
+<a href="../tools/uuid-generator.html">UUID Generator</a>
+<a href="../tools/hash-generator.html">Hash Generator</a>
+<h4>Test & Debug</h4>
+<a href="../tools/jwt-decoder.html" class="active">JWT Decoder</a>
+<a href="../tools/regex-tester.html">Regex Tester</a>
+<a href="../tools/cron-parser.html">Cron Parser</a>
+<a href="../tools/api-mocker.html">API Mocker / Tester</a>
+<a href="../tools/diff-checker.html">Diff Checker</a>
+</nav></aside>
+  <main id="main">
+    <div class="tool-header">
+      <div class="crumbs"><a href="../index.html">Home</a> &rsaquo; <span>JWT Decoder</span></div>
+      <h1>JWT Decoder</h1>
+      <p class="lede">Paste a JSON Web Token to decode its header and payload, and check whether it has expired. Decoding happens locally — your token is never sent anywhere.</p>
+      <div class="badge-row"><span class="badge">Decode</span><span class="badge">Expiry check</span><span class="badge">Client-side only</span></div>
+    </div>
+
+    
+<div class="panel">
+  <label for="jwt-in">JWT</label>
+  <textarea id="jwt-in" spellcheck="false" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"></textarea>
+  <div class="btn-row">
+    <button class="primary" id="jwt-decode">Decode token</button>
+    <button class="ghost" id="jwt-sample">Load sample</button>
+    <button class="ghost" id="jwt-clear">Clear</button>
+  </div>
+  <div id="jwt-status" class="status" role="status"></div>
+</div>
+<div class="grid-2">
+  <div class="panel">
+    <div class="panel-title"><span>Header</span><button class="small" data-copy-target="#jwt-header">Copy</button></div>
+    <pre class="code-box" id="jwt-header"></pre>
+  </div>
+  <div class="panel">
+    <div class="panel-title"><span>Payload</span><button class="small" data-copy-target="#jwt-payload">Copy</button></div>
+    <pre class="code-box" id="jwt-payload"></pre>
+  </div>
+</div>
+<div class="panel">
+  <div class="panel-title"><span>Claims summary</span></div>
+  <table class="kv" id="jwt-claims"></table>
+</div>
+<div class="panel">
+  <div class="panel-title"><span>Signature (not verified)</span></div>
+  <pre class="code-box" id="jwt-sig" style="min-height:auto;"></pre>
+  <p style="margin-top:10px; font-size:.85rem;">This tool only decodes the token — it does not verify the signature, since that requires the server's secret or public key, which should never be pasted into a browser tool.</p>
+</div>
+
+
+    <section class="prose">
+      <h2>How to use the jWT Decoder</h2>
+      <ol><li>Paste a JSON Web Token (the three dot-separated Base64URL segments) into the box.</li><li>Click “Decode token” to see the header and payload as formatted JSON, plus a plain-English claims summary.</li><li>Check the status line to see if the token's <code>exp</code> claim has already passed.</li><li>The raw signature segment is shown for reference, but it is never verified — verification needs the issuer's secret or public key.</li></ol>
+      <h2>Frequently asked questions</h2>
+      <div class="faq-item"><h3>Does this tool verify the JWT signature?</h3><p>No, by design. Verifying a signature requires the secret (HMAC) or public key (RSA/EC) used to sign it, and that key should never be typed into a third-party website. This tool only decodes the header and payload, which are just Base64URL — not encrypted.</p></div><div class="faq-item"><h3>Is my token sent to a server?</h3><p>No. Decoding uses your browser's built-in <code>atob</code> and JSON parsing — the token never leaves your machine or hits a network request.</p></div><div class="faq-item"><h3>Why do I see garbled characters in the payload?</h3><p>That usually means the string isn't valid Base64URL, or you've pasted only part of the token. Make sure all three segments, separated by two dots, are included.</p></div><div class="faq-item"><h3>What's the difference between exp, iat and nbf?</h3><p>“iat” is when the token was issued, “nbf” (not before) is the earliest it's valid, and “exp” is when it expires — all expressed as Unix timestamps (seconds since 1970).</p></div>
+    </section>
+
+    <section class="related">
+      <h2>Related tools</h2>
+      <div class="cards"><a class="card" href="regex-tester.html"><span class="tag">Test & Debug</span><h3>Regex Tester</h3><p>Test a regular expression against sample text with live match highlighting, capt&hellip;</p></a><a class="card" href="cron-parser.html"><span class="tag">Test & Debug</span><h3>Cron Expression Parser</h3><p>Paste a cron expression to get a plain-English explanation and a preview of its &hellip;</p></a><a class="card" href="api-mocker.html"><span class="tag">Test & Debug</span><h3>API Response Mocker & Tester</h3><p>Two tools in one: generate fake JSON data from a simple field schema, and send a&hellip;</p></a></div>
+    </section>
+  </main>
+</div>
+<footer>
+  <div>&copy; <span id="y"></span> DevToolbox &mdash; free tools for developers. Runs entirely in your browser; nothing you paste is uploaded.</div>
+  <div><a href="../about.html">About</a> &middot; <a href="../index.html#all-tools">All tools</a></div>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+<script src="../js/common.js"></script>
+<script>
+
+(function () {
+  var input = document.getElementById('jwt-in');
+  var status = document.getElementById('jwt-status');
+  var headerBox = document.getElementById('jwt-header');
+  var payloadBox = document.getElementById('jwt-payload');
+  var sigBox = document.getElementById('jwt-sig');
+  var claimsTable = document.getElementById('jwt-claims');
+
+  var KNOWN_CLAIMS = {
+    iss: 'Issuer', sub: 'Subject', aud: 'Audience', exp: 'Expires at',
+    nbf: 'Not valid before', iat: 'Issued at', jti: 'Token ID'
+  };
+
+  function base64UrlDecode(str) {
+    str = str.replace(/-/g, '+').replace(/_/g, '/');
+    while (str.length % 4) str += '=';
+    return decodeURIComponent(escape(atob(str)));
+  }
+
+  function fmtTime(unixSeconds) {
+    var d = new Date(unixSeconds * 1000);
+    return d.toLocaleString() + ' (' + d.toISOString() + ')';
+  }
+
+  function decode() {
+    var token = input.value.trim();
+    claimsTable.innerHTML = '';
+    if (!token) { setStatus(status, 'Paste a JWT to decode.', false); return; }
+    var parts = token.split('.');
+    if (parts.length < 2) {
+      setStatus(status, 'That does not look like a JWT \u2014 expected 3 dot-separated segments.', false);
+      headerBox.textContent = ''; payloadBox.textContent = ''; sigBox.textContent = '';
+      return;
+    }
+    try {
+      var header = JSON.parse(base64UrlDecode(parts[0]));
+      var payload = JSON.parse(base64UrlDecode(parts[1]));
+      headerBox.textContent = JSON.stringify(header, null, 2);
+      payloadBox.textContent = JSON.stringify(payload, null, 2);
+      sigBox.textContent = parts[2] ? parts[2] : '(none \u2014 unsigned token, alg: ' + (header.alg || '?') + ')';
+
+      var rows = [];
+      Object.keys(KNOWN_CLAIMS).forEach(function (key) {
+        if (payload[key] !== undefined) {
+          var val = payload[key];
+          if (key === 'exp' || key === 'iat' || key === 'nbf') val = val + '  \u2014  ' + fmtTime(val);
+          rows.push('<tr><th>' + KNOWN_CLAIMS[key] + ' (' + key + ')</th><td>' + String(val) + '</td></tr>');
+        }
+      });
+      if (header.alg) rows.unshift('<tr><th>Algorithm</th><td>' + header.alg + '</td></tr>');
+      claimsTable.innerHTML = rows.join('');
+
+      var now = Math.floor(Date.now() / 1000);
+      if (payload.exp !== undefined) {
+        if (payload.exp < now) {
+          setStatus(status, 'Decoded. Token EXPIRED ' + fmtTime(payload.exp) + '.', false);
+        } else {
+          setStatus(status, 'Decoded. Token valid until ' + fmtTime(payload.exp) + '.', true);
+        }
+      } else {
+        setStatus(status, 'Decoded successfully. Token has no exp claim.', true);
+      }
+    } catch (e) {
+      setStatus(status, 'Could not decode token: ' + e.message, false);
+      headerBox.textContent = ''; payloadBox.textContent = ''; sigBox.textContent = '';
+    }
+  }
+
+  document.getElementById('jwt-decode').addEventListener('click', decode);
+  document.getElementById('jwt-clear').addEventListener('click', function () {
+    input.value = ''; headerBox.textContent = ''; payloadBox.textContent = ''; sigBox.textContent = '';
+    claimsTable.innerHTML = ''; setStatus(status, '', true);
+  });
+  document.getElementById('jwt-sample').addEventListener('click', function () {
+    input.value = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFkYSBMb3ZlbGFjZSIsImlhdCI6MTcwMDAwMDAwMCwiZXhwIjoxNzMxNTM2MDAwfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
+    decode();
+  });
+})();
+
+</script>
+</body>
+</html>

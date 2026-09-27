@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>properties to YAML Converter — Spring Boot | DevToolbox</title>
+<meta name="description" content="Convert Spring Boot's application.properties to application.yml and back, instantly and for free, right in your browser.">
+<link rel="canonical" href="https://www.devtoolbox.example/tools/yaml-properties-converter.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="properties to YAML Converter — Spring Boot | DevToolbox">
+<meta property="og:description" content="Convert Spring Boot's application.properties to application.yml and back, instantly and for free, right in your browser.">
+<meta property="og:url" content="https://www.devtoolbox.example/tools/yaml-properties-converter.html">
+<meta property="og:site_name" content="DevToolbox">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="properties to YAML Converter — Spring Boot | DevToolbox">
+<meta name="twitter:description" content="Convert Spring Boot's application.properties to application.yml and back, instantly and for free, right in your browser.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "application.properties ↔ YAML Converter - DevToolbox", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any (runs in browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://www.devtoolbox.example/tools/yaml-properties-converter.html", "description": "Convert Spring Boot's application.properties to application.yml and back, instantly and for free, right in your browser."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does Spring Boot support both formats?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — Spring Boot auto-detects and loads either <code>application.properties</code> or <code>application.yml</code> from <code>src/main/resources</code>; you can use whichever format your team prefers, but not usually both for the same keys."}}, {"@type": "Question", "name": "Does this handle YAML lists / arrays?", "acceptedAnswer": {"@type": "Answer", "text": "This converter targets the common case of nested scalar configuration keys used in Spring Boot config. Complex YAML with lists, anchors or multi-document files may need manual adjustment."}}, {"@type": "Question", "name": "Will comments be preserved?", "acceptedAnswer": {"@type": "Answer", "text": "Comments (lines starting with <code>#</code>) are skipped during conversion rather than preserved, consistent with how Spring's own property loader treats them."}}, {"@type": "Question", "name": "Why did a value get quoted in the YAML output?", "acceptedAnswer": {"@type": "Answer", "text": "Values containing YAML-significant characters like <code>:</code>, <code>#</code>, <code>{</code> or <code>[</code> are quoted automatically so they aren't misinterpreted as YAML syntax."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.devtoolbox.example/index.html"}, {"@type": "ListItem", "position": 2, "name": "application.properties ↔ YAML Converter", "item": "https://www.devtoolbox.example/tools/yaml-properties-converter.html"}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="DevToolbox home">
+    <svg class="mark" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="22" height="22" rx="3" stroke-width="1.6"/>
+      <path d="M8 9L5.5 13L8 17M18 9L20.5 13L18 17M14.5 7L11.5 19" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    DevToolbox
+  </a>
+  <div class="topbar-search">
+    <input type="search" id="tool-search" placeholder="Search tools&hellip; (JSON, JWT, UUID, cron&hellip;)" aria-label="Search tools">
+  </div>
+  <nav class="topbar-links">
+    <a href="../index.html#all-tools">All tools</a>
+    <a href="../about.html">About</a>
+  </nav>
+  <button class="nav-toggle" aria-label="Toggle tool menu">&#9776;</button>
+</header>
+<div class="shell">
+  <aside class="sidebar"><nav aria-label="Tool categories">
+<h4>Format & Convert</h4>
+<a href="../tools/json-formatter.html">JSON Formatter</a>
+<a href="../tools/sql-formatter.html">SQL Formatter</a>
+<a href="../tools/yaml-properties-converter.html" class="active">YAML ↔ Properties</a>
+<a href="../tools/base64-encoder-decoder.html">Base64 Encode/Decode</a>
+<a href="../tools/timestamp-converter.html">Timestamp Converter</a>
+<h4>Generate</h4>
+<a href="../tools/uuid-generator.html">UUID Generator</a>
+<a href="../tools/hash-generator.html">Hash Generator</a>
+<h4>Test & Debug</h4>
+<a href="../tools/jwt-decoder.html">JWT Decoder</a>
+<a href="../tools/regex-tester.html">Regex Tester</a>
+<a href="../tools/cron-parser.html">Cron Parser</a>
+<a href="../tools/api-mocker.html">API Mocker / Tester</a>
+<a href="../tools/diff-checker.html">Diff Checker</a>
+</nav></aside>
+  <main id="main">
+    <div class="tool-header">
+      <div class="crumbs"><a href="../index.html">Home</a> &rsaquo; <span>application.properties ↔ YAML Converter</span></div>
+      <h1>application.properties ↔ YAML Converter</h1>
+      <p class="lede">Convert Spring Boot's <code>application.properties</code> to <code>application.yml</code> format, or the other way around.</p>
+      <div class="badge-row"><span class="badge">Spring Boot</span><span class="badge">Nested keys</span><span class="badge">Both directions</span></div>
+    </div>
+
+    
+<div class="grid-2">
+  <div class="panel">
+    <label for="conv-props">application.properties</label>
+    <textarea id="conv-props" spellcheck="false" style="min-height:260px;">server.port=8080
+spring.datasource.url=jdbc:mysql://localhost:3306/app
+spring.datasource.username=root
+spring.jpa.hibernate.ddl-auto=update
+spring.kafka.bootstrap-servers=localhost:9092
+logging.level.org.springframework=INFO</textarea>
+    <div class="btn-row">
+      <button class="primary" id="conv-to-yaml">Convert to YAML &rarr;</button>
+    </div>
+  </div>
+  <div class="panel">
+    <label for="conv-yaml">application.yml</label>
+    <textarea id="conv-yaml" spellcheck="false" style="min-height:260px;"></textarea>
+    <div class="btn-row">
+      <button class="primary" id="conv-to-props">&larr; Convert to properties</button>
+      <button class="small" data-copy-target="#conv-yaml">Copy YAML</button>
+    </div>
+  </div>
+</div>
+<div id="conv-status" class="status" role="status"></div>
+
+
+    <section class="prose">
+      <h2>How to use the application.properties ↔ YAML Converter</h2>
+      <ol><li>Paste your <code>application.properties</code> content on the left and click “Convert to YAML” to get properly nested <code>application.yml</code> output.</li><li>Or paste YAML on the right and click “Convert to properties” to flatten it back to dotted keys.</li><li>Dotted keys like <code>spring.datasource.url</code> automatically nest under <code>spring: datasource: url:</code> in YAML.</li><li>Handles booleans and numbers sensibly, and quotes YAML values that contain special characters.</li></ol>
+      <h2>Frequently asked questions</h2>
+      <div class="faq-item"><h3>Does Spring Boot support both formats?</h3><p>Yes — Spring Boot auto-detects and loads either <code>application.properties</code> or <code>application.yml</code> from <code>src/main/resources</code>; you can use whichever format your team prefers, but not usually both for the same keys.</p></div><div class="faq-item"><h3>Does this handle YAML lists / arrays?</h3><p>This converter targets the common case of nested scalar configuration keys used in Spring Boot config. Complex YAML with lists, anchors or multi-document files may need manual adjustment.</p></div><div class="faq-item"><h3>Will comments be preserved?</h3><p>Comments (lines starting with <code>#</code>) are skipped during conversion rather than preserved, consistent with how Spring's own property loader treats them.</p></div><div class="faq-item"><h3>Why did a value get quoted in the YAML output?</h3><p>Values containing YAML-significant characters like <code>:</code>, <code>#</code>, <code>{</code> or <code>[</code> are quoted automatically so they aren't misinterpreted as YAML syntax.</p></div>
+    </section>
+
+    <section class="related">
+      <h2>Related tools</h2>
+      <div class="cards"><a class="card" href="json-formatter.html"><span class="tag">Format & Convert</span><h3>JSON Formatter</h3><p>Paste any JSON, get it validated, pretty-printed or minified instantly. Everythi&hellip;</p></a><a class="card" href="sql-formatter.html"><span class="tag">Format & Convert</span><h3>SQL Formatter</h3><p>Paste a messy SQL query and get it reformatted with clause-per-line indentation &hellip;</p></a><a class="card" href="base64-encoder-decoder.html"><span class="tag">Format & Convert</span><h3>Base64 Encoder / Decoder</h3><p>Convert plain text to Base64 or decode a Base64 string back to readable text — h&hellip;</p></a></div>
+    </section>
+  </main>
+</div>
+<footer>
+  <div>&copy; <span id="y"></span> DevToolbox &mdash; free tools for developers. Runs entirely in your browser; nothing you paste is uploaded.</div>
+  <div><a href="../about.html">About</a> &middot; <a href="../index.html#all-tools">All tools</a></div>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+<script src="../js/common.js"></script>
+<script>
+
+(function () {
+  function propsToTree(text) {
+    var root = {};
+    text.split('\n').forEach(function (line) {
+      line = line.trim();
+      if (!line || line.startsWith('#') || line.startsWith('!')) return;
+      var idx = line.indexOf('=');
+      if (idx === -1) idx = line.indexOf(':');
+      if (idx === -1) return;
+      var key = line.slice(0, idx).trim();
+      var value = line.slice(idx + 1).trim();
+      var parts = key.split('.');
+      var node = root;
+      for (var i = 0; i < parts.length - 1; i++) {
+        if (typeof node[parts[i]] !== 'object' || node[parts[i]] === null) node[parts[i]] = {};
+        node = node[parts[i]];
+      }
+      node[parts[parts.length - 1]] = value;
+    });
+    return root;
+  }
+
+  function coerce(v) {
+    if (v === 'true') return true;
+    if (v === 'false') return false;
+    if (/^-?\d+$/.test(v)) return parseInt(v, 10);
+    if (/^-?\d+\.\d+$/.test(v)) return parseFloat(v);
+    return v;
+  }
+
+  function treeToYaml(node, indent) {
+    indent = indent || 0;
+    var pad = '  '.repeat(indent);
+    var lines = [];
+    Object.keys(node).forEach(function (key) {
+      var val = node[key];
+      if (val !== null && typeof val === 'object') {
+        lines.push(pad + key + ':');
+        lines.push(treeToYaml(val, indent + 1));
+      } else {
+        var coerced = coerce(String(val));
+        var out = typeof coerced === 'string' && /[:#\[\]{}]/.test(coerced) ? JSON.stringify(coerced) : coerced;
+        lines.push(pad + key + ': ' + out);
+      }
+    });
+    return lines.join('\n');
+  }
+
+  function yamlToFlat(text) {
+    var lines = text.split('\n');
+    var stack = [{ indent: -1, prefix: '' }];
+    var flat = {};
+    lines.forEach(function (raw) {
+      if (!raw.trim() || raw.trim().startsWith('#')) return;
+      var indent = raw.match(/^\s*/)[0].length;
+      var line = raw.trim();
+      var idx = line.indexOf(':');
+      if (idx === -1) return;
+      var key = line.slice(0, idx).trim();
+      var value = line.slice(idx + 1).trim();
+      while (stack.length && indent <= stack[stack.length - 1].indent) stack.pop();
+      var prefix = (stack[stack.length - 1].prefix ? stack[stack.length - 1].prefix + '.' : '') + key;
+      if (value === '') {
+        stack.push({ indent: indent, prefix: prefix });
+      } else {
+        flat[prefix] = value.replace(/^['"]|['"]$/g, '');
+      }
+    });
+    return flat;
+  }
+
+  document.getElementById('conv-to-yaml').addEventListener('click', function () {
+    var status = document.getElementById('conv-status');
+    try {
+      var tree = propsToTree(document.getElementById('conv-props').value);
+      document.getElementById('conv-yaml').value = treeToYaml(tree);
+      setStatus(status, 'Converted to YAML.', true);
+    } catch (e) { setStatus(status, 'Could not convert: ' + e.message, false); }
+  });
+
+  document.getElementById('conv-to-props').addEventListener('click', function () {
+    var status = document.getElementById('conv-status');
+    try {
+      var flat = yamlToFlat(document.getElementById('conv-yaml').value);
+      var lines = Object.keys(flat).map(function (k) { return k + '=' + flat[k]; });
+      document.getElementById('conv-props').value = lines.join('\n');
+      setStatus(status, 'Converted to properties.', true);
+    } catch (e) { setStatus(status, 'Could not convert: ' + e.message, false); }
+  });
+})();
+
+</script>
+</body>
+</html>

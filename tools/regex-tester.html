@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Regex Tester Online — JavaScript Regex | DevToolbox</title>
+<meta name="description" content="Test and debug regular expressions online with live match highlighting, capture groups and replace preview. Free JavaScript-flavoured regex tester.">
+<link rel="canonical" href="https://www.devtoolbox.example/tools/regex-tester.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Regex Tester Online — JavaScript Regex | DevToolbox">
+<meta property="og:description" content="Test and debug regular expressions online with live match highlighting, capture groups and replace preview. Free JavaScript-flavoured regex tester.">
+<meta property="og:url" content="https://www.devtoolbox.example/tools/regex-tester.html">
+<meta property="og:site_name" content="DevToolbox">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Regex Tester Online — JavaScript Regex | DevToolbox">
+<meta name="twitter:description" content="Test and debug regular expressions online with live match highlighting, capture groups and replace preview. Free JavaScript-flavoured regex tester.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Regex Tester - DevToolbox", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any (runs in browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://www.devtoolbox.example/tools/regex-tester.html", "description": "Test and debug regular expressions online with live match highlighting, capture groups and replace preview. Free JavaScript-flavoured regex tester."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What regex flavour does this use?", "acceptedAnswer": {"@type": "Answer", "text": "JavaScript's native <code>RegExp</code> engine — the same one used in Node.js and browsers. Syntax is very close to PCRE but has a few differences (e.g. no atomic groups, different Unicode property escapes without the <code>u</code> flag)."}}, {"@type": "Question", "name": "Why aren't there multiple matches?", "acceptedAnswer": {"@type": "Answer", "text": "Make sure the <code>g</code> (global) flag is set — without it, only the first match is found. This tool adds it automatically for highlighting even if you forget it."}}, {"@type": "Question", "name": "How do I match across multiple lines?", "acceptedAnswer": {"@type": "Answer", "text": "Add the <code>s</code> flag so <code>.</code> matches newlines too, or the <code>m</code> flag so <code>^</code>/<code>$</code> match the start/end of each line rather than the whole string."}}, {"@type": "Question", "name": "Can I test lookaheads and lookbehinds?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, JavaScript supports <code>(?=...)</code>, <code>(?!...)</code>, <code>(?<=...)</code> and <code>(?<!...)</code> in modern browsers."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.devtoolbox.example/index.html"}, {"@type": "ListItem", "position": 2, "name": "Regex Tester", "item": "https://www.devtoolbox.example/tools/regex-tester.html"}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="DevToolbox home">
+    <svg class="mark" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="22" height="22" rx="3" stroke-width="1.6"/>
+      <path d="M8 9L5.5 13L8 17M18 9L20.5 13L18 17M14.5 7L11.5 19" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    DevToolbox
+  </a>
+  <div class="topbar-search">
+    <input type="search" id="tool-search" placeholder="Search tools&hellip; (JSON, JWT, UUID, cron&hellip;)" aria-label="Search tools">
+  </div>
+  <nav class="topbar-links">
+    <a href="../index.html#all-tools">All tools</a>
+    <a href="../about.html">About</a>
+  </nav>
+  <button class="nav-toggle" aria-label="Toggle tool menu">&#9776;</button>
+</header>
+<div class="shell">
+  <aside class="sidebar"><nav aria-label="Tool categories">
+<h4>Format & Convert</h4>
+<a href="../tools/json-formatter.html">JSON Formatter</a>
+<a href="../tools/sql-formatter.html">SQL Formatter</a>
+<a href="../tools/yaml-properties-converter.html">YAML ↔ Properties</a>
+<a href="../tools/base64-encoder-decoder.html">Base64 Encode/Decode</a>
+<a href="../tools/timestamp-converter.html">Timestamp Converter</a>
+<h4>Generate</h4>
+<a href="../tools/uuid-generator.html">UUID Generator</a>
+<a href="../tools/hash-generator.html">Hash Generator</a>
+<h4>Test & Debug</h4>
+<a href="../tools/jwt-decoder.html">JWT Decoder</a>
+<a href="../tools/regex-tester.html" class="active">Regex Tester</a>
+<a href="../tools/cron-parser.html">Cron Parser</a>
+<a href="../tools/api-mocker.html">API Mocker / Tester</a>
+<a href="../tools/diff-checker.html">Diff Checker</a>
+</nav></aside>
+  <main id="main">
+    <div class="tool-header">
+      <div class="crumbs"><a href="../index.html">Home</a> &rsaquo; <span>Regex Tester</span></div>
+      <h1>Regex Tester</h1>
+      <p class="lede">Test a regular expression against sample text with live match highlighting, capture groups, and a find-and-replace preview.</p>
+      <div class="badge-row"><span class="badge">Live match</span><span class="badge">Groups</span><span class="badge">Replace</span></div>
+    </div>
+
+    
+<div class="panel">
+  <div class="grid-2">
+    <div>
+      <label for="re-pattern">Pattern</label>
+      <input id="re-pattern" type="text" placeholder="\b[\w.-]+@[\w.-]+\.\w+\b" class="mono">
+    </div>
+    <div>
+      <label for="re-flags">Flags</label>
+      <input id="re-flags" type="text" placeholder="gi" value="g" class="mono">
+    </div>
+  </div>
+  <div id="re-status" class="status" role="status"></div>
+</div>
+<div class="panel">
+  <label for="re-text">Test string</label>
+  <textarea id="re-text" spellcheck="false" placeholder="Contact us at hello@example.com or support@devtoolbox.example"></textarea>
+</div>
+<div class="grid-2">
+  <div class="panel">
+    <div class="panel-title"><span>Highlighted matches</span></div>
+    <div class="code-box" id="re-highlighted"></div>
+  </div>
+  <div class="panel">
+    <div class="panel-title"><span>Matches &amp; groups</span></div>
+    <div class="code-box" id="re-matches"></div>
+  </div>
+</div>
+<div class="panel">
+  <label for="re-replace">Replace with (use $1, $2&hellip; for groups)</label>
+  <input id="re-replace" type="text" placeholder="[EMAIL]" class="mono">
+  <div class="panel-title" style="margin-top:12px;"><span>Result</span><button class="small" data-copy-target="#re-result">Copy</button></div>
+  <pre class="code-box" id="re-result"></pre>
+</div>
+
+
+    <section class="prose">
+      <h2>How to use the regex Tester</h2>
+      <ol><li>Type a regular expression pattern (JavaScript flavour) and any flags such as <code>g</code>, <code>i</code> or <code>m</code>.</li><li>Paste or type your test string — matches highlight live as you type.</li><li>Expand the matches panel to see each match's index and any capture groups.</li><li>Fill in the replace field to preview a find-and-replace using <code>$1</code>, <code>$2</code>&hellip; group references.</li></ol>
+      <h2>Frequently asked questions</h2>
+      <div class="faq-item"><h3>What regex flavour does this use?</h3><p>JavaScript's native <code>RegExp</code> engine — the same one used in Node.js and browsers. Syntax is very close to PCRE but has a few differences (e.g. no atomic groups, different Unicode property escapes without the <code>u</code> flag).</p></div><div class="faq-item"><h3>Why aren't there multiple matches?</h3><p>Make sure the <code>g</code> (global) flag is set — without it, only the first match is found. This tool adds it automatically for highlighting even if you forget it.</p></div><div class="faq-item"><h3>How do I match across multiple lines?</h3><p>Add the <code>s</code> flag so <code>.</code> matches newlines too, or the <code>m</code> flag so <code>^</code>/<code>$</code> match the start/end of each line rather than the whole string.</p></div><div class="faq-item"><h3>Can I test lookaheads and lookbehinds?</h3><p>Yes, JavaScript supports <code>(?=...)</code>, <code>(?!...)</code>, <code>(?<=...)</code> and <code>(?<!...)</code> in modern browsers.</p></div>
+    </section>
+
+    <section class="related">
+      <h2>Related tools</h2>
+      <div class="cards"><a class="card" href="jwt-decoder.html"><span class="tag">Test & Debug</span><h3>JWT Decoder</h3><p>Paste a JSON Web Token to decode its header and payload, and check whether it ha&hellip;</p></a><a class="card" href="cron-parser.html"><span class="tag">Test & Debug</span><h3>Cron Expression Parser</h3><p>Paste a cron expression to get a plain-English explanation and a preview of its &hellip;</p></a><a class="card" href="api-mocker.html"><span class="tag">Test & Debug</span><h3>API Response Mocker & Tester</h3><p>Two tools in one: generate fake JSON data from a simple field schema, and send a&hellip;</p></a></div>
+    </section>
+  </main>
+</div>
+<footer>
+  <div>&copy; <span id="y"></span> DevToolbox &mdash; free tools for developers. Runs entirely in your browser; nothing you paste is uploaded.</div>
+  <div><a href="../about.html">About</a> &middot; <a href="../index.html#all-tools">All tools</a></div>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+<script src="../js/common.js"></script>
+<script>
+
+(function () {
+  var pattern = document.getElementById('re-pattern');
+  var flags = document.getElementById('re-flags');
+  var text = document.getElementById('re-text');
+  var status = document.getElementById('re-status');
+  var highlighted = document.getElementById('re-highlighted');
+  var matchesBox = document.getElementById('re-matches');
+  var replaceInput = document.getElementById('re-replace');
+  var resultBox = document.getElementById('re-result');
+
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+  function run() {
+    var p = pattern.value;
+    var f = flags.value.replace(/[^gimsuy]/g, '');
+    if (!p) { highlighted.textContent = ''; matchesBox.textContent = ''; resultBox.textContent = ''; setStatus(status, '', true); return; }
+    var re;
+    try { re = new RegExp(p, f.indexOf('g') === -1 ? f + 'g' : f); }
+    catch (e) { setStatus(status, 'Invalid regex: ' + e.message, false); highlighted.textContent = ''; matchesBox.textContent = ''; return; }
+
+    var src = text.value;
+    var lastIndex = 0, html = '', count = 0, rows = [];
+    var m;
+    var safety = 0;
+    while ((m = re.exec(src)) !== null && safety < 5000) {
+      safety++;
+      html += esc(src.slice(lastIndex, m.index)) + '<mark style="background:var(--warm-dim); color:var(--warm); border-radius:2px;">' + esc(m[0]) + '</mark>';
+      lastIndex = m.index + (m[0].length || 1);
+      count++;
+      var groups = m.slice(1).map(function (g, i) { return 'group ' + (i + 1) + ': ' + (g === undefined ? '(undefined)' : JSON.stringify(g)); }).join('\n  ');
+      rows.push('#' + count + '  at index ' + m.index + '  \u2192  ' + JSON.stringify(m[0]) + (groups ? '\n  ' + groups : ''));
+      if (m[0].length === 0) re.lastIndex++;
+    }
+    html += esc(src.slice(lastIndex));
+    highlighted.innerHTML = html || '<span style="color:var(--muted)">(empty test string)</span>';
+    matchesBox.textContent = rows.length ? rows.join('\n\n') : 'No matches.';
+    setStatus(status, count + ' match' + (count === 1 ? '' : 'es') + ' found.', true);
+
+    try {
+      resultBox.textContent = replaceInput.value ? src.replace(new RegExp(p, f.indexOf('g') === -1 ? f + 'g' : f), replaceInput.value) : '';
+    } catch (e) { resultBox.textContent = ''; }
+  }
+
+  [pattern, flags, text, replaceInput].forEach(function (el) { el.addEventListener('input', run); });
+})();
+
+</script>
+</body>
+</html>

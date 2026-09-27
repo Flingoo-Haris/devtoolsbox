@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hash Generator Online — MD5 & SHA-256 | DevToolbox</title>
+<meta name="description" content="Generate MD5, SHA-1, SHA-256, SHA-384 and SHA-512 hashes from text online, instantly and for free, entirely in your browser.">
+<link rel="canonical" href="https://www.devtoolbox.example/tools/hash-generator.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hash Generator Online — MD5 & SHA-256 | DevToolbox">
+<meta property="og:description" content="Generate MD5, SHA-1, SHA-256, SHA-384 and SHA-512 hashes from text online, instantly and for free, entirely in your browser.">
+<meta property="og:url" content="https://www.devtoolbox.example/tools/hash-generator.html">
+<meta property="og:site_name" content="DevToolbox">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hash Generator Online — MD5 & SHA-256 | DevToolbox">
+<meta name="twitter:description" content="Generate MD5, SHA-1, SHA-256, SHA-384 and SHA-512 hashes from text online, instantly and for free, entirely in your browser.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Hash Generator - DevToolbox", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any (runs in browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://www.devtoolbox.example/tools/hash-generator.html", "description": "Generate MD5, SHA-1, SHA-256, SHA-384 and SHA-512 hashes from text online, instantly and for free, entirely in your browser."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is MD5 safe to use for passwords?", "acceptedAnswer": {"@type": "Answer", "text": "No. MD5 (and SHA-1) are cryptographically broken for security purposes and far too fast to resist brute-force attacks — never use them for password storage. Use a dedicated password hashing algorithm like bcrypt, scrypt or Argon2 instead."}}, {"@type": "Question", "name": "What's the difference between SHA-256 and SHA-512?", "acceptedAnswer": {"@type": "Answer", "text": "Both are part of the SHA-2 family; SHA-256 produces a 256-bit (64 hex character) digest and SHA-512 a 512-bit (128 hex character) digest. SHA-512 is often faster on 64-bit hardware despite producing a longer output."}}, {"@type": "Question", "name": "Why generate a hash at all?", "acceptedAnswer": {"@type": "Answer", "text": "Common uses include verifying a downloaded file wasn't corrupted or tampered with, generating deterministic cache keys, detecting duplicate content, and checksums in Git and package managers."}}, {"@type": "Question", "name": "Is my text uploaded to compute the hash?", "acceptedAnswer": {"@type": "Answer", "text": "No — hashing happens locally using the browser's Web Crypto API and an in-page MD5 implementation; nothing you type is sent over the network."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.devtoolbox.example/index.html"}, {"@type": "ListItem", "position": 2, "name": "Hash Generator", "item": "https://www.devtoolbox.example/tools/hash-generator.html"}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="DevToolbox home">
+    <svg class="mark" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="22" height="22" rx="3" stroke-width="1.6"/>
+      <path d="M8 9L5.5 13L8 17M18 9L20.5 13L18 17M14.5 7L11.5 19" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    DevToolbox
+  </a>
+  <div class="topbar-search">
+    <input type="search" id="tool-search" placeholder="Search tools&hellip; (JSON, JWT, UUID, cron&hellip;)" aria-label="Search tools">
+  </div>
+  <nav class="topbar-links">
+    <a href="../index.html#all-tools">All tools</a>
+    <a href="../about.html">About</a>
+  </nav>
+  <button class="nav-toggle" aria-label="Toggle tool menu">&#9776;</button>
+</header>
+<div class="shell">
+  <aside class="sidebar"><nav aria-label="Tool categories">
+<h4>Format & Convert</h4>
+<a href="../tools/json-formatter.html">JSON Formatter</a>
+<a href="../tools/sql-formatter.html">SQL Formatter</a>
+<a href="../tools/yaml-properties-converter.html">YAML ↔ Properties</a>
+<a href="../tools/base64-encoder-decoder.html">Base64 Encode/Decode</a>
+<a href="../tools/timestamp-converter.html">Timestamp Converter</a>
+<h4>Generate</h4>
+<a href="../tools/uuid-generator.html">UUID Generator</a>
+<a href="../tools/hash-generator.html" class="active">Hash Generator</a>
+<h4>Test & Debug</h4>
+<a href="../tools/jwt-decoder.html">JWT Decoder</a>
+<a href="../tools/regex-tester.html">Regex Tester</a>
+<a href="../tools/cron-parser.html">Cron Parser</a>
+<a href="../tools/api-mocker.html">API Mocker / Tester</a>
+<a href="../tools/diff-checker.html">Diff Checker</a>
+</nav></aside>
+  <main id="main">
+    <div class="tool-header">
+      <div class="crumbs"><a href="../index.html">Home</a> &rsaquo; <span>Hash Generator</span></div>
+      <h1>Hash Generator</h1>
+      <p class="lede">Hash any text with MD5, SHA-1, SHA-256, SHA-384 or SHA-512 — computed locally in your browser using the Web Crypto API (and a built-in MD5 implementation).</p>
+      <div class="badge-row"><span class="badge">MD5</span><span class="badge">SHA-1</span><span class="badge">SHA-256</span><span class="badge">SHA-512</span></div>
+    </div>
+
+    
+<div class="panel">
+  <label for="hash-in">Text input</label>
+  <textarea id="hash-in" spellcheck="false" placeholder="Type or paste text to hash&hellip;"></textarea>
+  <div class="btn-row">
+    <button class="primary" id="hash-run">Generate hashes</button>
+  </div>
+</div>
+<div class="panel">
+  <table class="kv" id="hash-out">
+    <tr><th>MD5</th><td id="hash-md5">&mdash;</td></tr>
+    <tr><th>SHA-1</th><td id="hash-sha1">&mdash;</td></tr>
+    <tr><th>SHA-256</th><td id="hash-sha256">&mdash;</td></tr>
+    <tr><th>SHA-384</th><td id="hash-sha384">&mdash;</td></tr>
+    <tr><th>SHA-512</th><td id="hash-sha512">&mdash;</td></tr>
+  </table>
+</div>
+
+
+    <section class="prose">
+      <h2>How to use the hash Generator</h2>
+      <ol><li>Type or paste any text into the input box.</li><li>Click “Generate hashes” to compute MD5, SHA-1, SHA-256, SHA-384 and SHA-512 digests all at once.</li><li>SHA-family hashes use your browser's native Web Crypto API; MD5 uses a small built-in JavaScript implementation since Web Crypto doesn't expose MD5.</li><li>Use these to verify file/message integrity, generate cache keys, or compare against known checksums.</li></ol>
+      <h2>Frequently asked questions</h2>
+      <div class="faq-item"><h3>Is MD5 safe to use for passwords?</h3><p>No. MD5 (and SHA-1) are cryptographically broken for security purposes and far too fast to resist brute-force attacks — never use them for password storage. Use a dedicated password hashing algorithm like bcrypt, scrypt or Argon2 instead.</p></div><div class="faq-item"><h3>What's the difference between SHA-256 and SHA-512?</h3><p>Both are part of the SHA-2 family; SHA-256 produces a 256-bit (64 hex character) digest and SHA-512 a 512-bit (128 hex character) digest. SHA-512 is often faster on 64-bit hardware despite producing a longer output.</p></div><div class="faq-item"><h3>Why generate a hash at all?</h3><p>Common uses include verifying a downloaded file wasn't corrupted or tampered with, generating deterministic cache keys, detecting duplicate content, and checksums in Git and package managers.</p></div><div class="faq-item"><h3>Is my text uploaded to compute the hash?</h3><p>No — hashing happens locally using the browser's Web Crypto API and an in-page MD5 implementation; nothing you type is sent over the network.</p></div>
+    </section>
+
+    <section class="related">
+      <h2>Related tools</h2>
+      <div class="cards"><a class="card" href="uuid-generator.html"><span class="tag">Generate</span><h3>UUID Generator</h3><p>Generate cryptographically random UUIDs (v4) or time-ordered UUIDs (v7) — one at&hellip;</p></a><a class="card" href="json-formatter.html"><span class="tag">Format & Convert</span><h3>JSON Formatter</h3><p>Paste any JSON, get it validated, pretty-printed or minified instantly. Everythi&hellip;</p></a><a class="card" href="sql-formatter.html"><span class="tag">Format & Convert</span><h3>SQL Formatter</h3><p>Paste a messy SQL query and get it reformatted with clause-per-line indentation &hellip;</p></a></div>
+    </section>
+  </main>
+</div>
+<footer>
+  <div>&copy; <span id="y"></span> DevToolbox &mdash; free tools for developers. Runs entirely in your browser; nothing you paste is uploaded.</div>
+  <div><a href="../about.html">About</a> &middot; <a href="../index.html#all-tools">All tools</a></div>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+<script src="../js/common.js"></script>
+<script>
+
+(function () {
+  // Compact, self-contained MD5 implementation (Web Crypto does not expose MD5).
+  function md5(str) {
+    function rl(n, c) { return (n << c) | (n >>> (32 - c)); }
+    function toWords(s) {
+      var bytes = new TextEncoder().encode(s);
+      var n = bytes.length;
+      var words = new Array(((n + 8) >> 6) * 16 + 16).fill(0);
+      for (var i = 0; i < n; i++) words[i >> 2] |= bytes[i] << ((i % 4) * 8);
+      words[n >> 2] |= 0x80 << ((n % 4) * 8);
+      words[words.length - 2] = n * 8;
+      return words;
+    }
+    var K = [], i;
+    for (i = 0; i < 64; i++) K[i] = (Math.abs(Math.sin(i + 1)) * 4294967296) | 0;
+    var S = [7,12,17,22,7,12,17,22,7,12,17,22,7,12,17,22,5,9,14,20,5,9,14,20,5,9,14,20,5,9,14,20,
+      4,11,16,23,4,11,16,23,4,11,16,23,4,11,16,23,6,10,15,21,6,10,15,21,6,10,15,21,6,10,15,21];
+    var words = toWords(str);
+    var a0 = 0x67452301, b0 = 0xefcdab89, c0 = 0x98badcfe, d0 = 0x10325476;
+    for (var chunk = 0; chunk < words.length; chunk += 16) {
+      var M = words.slice(chunk, chunk + 16);
+      var A = a0, B = b0, C = c0, D = d0;
+      for (i = 0; i < 64; i++) {
+        var F, g;
+        if (i < 16) { F = (B & C) | (~B & D); g = i; }
+        else if (i < 32) { F = (D & B) | (~D & C); g = (5 * i + 1) % 16; }
+        else if (i < 48) { F = B ^ C ^ D; g = (3 * i + 5) % 16; }
+        else { F = C ^ (B | ~D); g = (7 * i) % 16; }
+        F = (F + A + K[i] + (M[g] | 0)) | 0;
+        A = D; D = C; C = B;
+        B = (B + rl(F, S[i])) | 0;
+      }
+      a0 = (a0 + A) | 0; b0 = (b0 + B) | 0; c0 = (c0 + C) | 0; d0 = (d0 + D) | 0;
+    }
+    function toHexLE(n) {
+      var bytes = [n & 0xff, (n >>> 8) & 0xff, (n >>> 16) & 0xff, (n >>> 24) & 0xff];
+      return bytes.map(function (b) { return b.toString(16).padStart(2, '0'); }).join('');
+    }
+    return toHexLE(a0) + toHexLE(b0) + toHexLE(c0) + toHexLE(d0);
+  }
+
+  function bufToHex(buf) {
+    return Array.from(new Uint8Array(buf)).map(function (b) { return b.toString(16).padStart(2, '0'); }).join('');
+  }
+
+  async function shaHash(algo, text) {
+    var data = new TextEncoder().encode(text);
+    var buf = await crypto.subtle.digest(algo, data);
+    return bufToHex(buf);
+  }
+
+  document.getElementById('hash-run').addEventListener('click', async function () {
+    var text = document.getElementById('hash-in').value;
+    document.getElementById('hash-md5').textContent = md5(text);
+    document.getElementById('hash-sha1').textContent = await shaHash('SHA-1', text);
+    document.getElementById('hash-sha256').textContent = await shaHash('SHA-256', text);
+    document.getElementById('hash-sha384').textContent = await shaHash('SHA-384', text);
+    document.getElementById('hash-sha512').textContent = await shaHash('SHA-512', text);
+  });
+})();
+
+</script>
+</body>
+</html>

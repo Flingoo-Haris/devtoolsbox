@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>API Mock Data Generator & Tester | DevToolbox</title>
+<meta name="description" content="Generate realistic mock JSON data from a simple schema, and send real HTTP requests to test any API endpoint — view status, headers and response body.">
+<link rel="canonical" href="https://www.devtoolbox.example/tools/api-mocker.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="API Mock Data Generator & Tester | DevToolbox">
+<meta property="og:description" content="Generate realistic mock JSON data from a simple schema, and send real HTTP requests to test any API endpoint — view status, headers and response body.">
+<meta property="og:url" content="https://www.devtoolbox.example/tools/api-mocker.html">
+<meta property="og:site_name" content="DevToolbox">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="API Mock Data Generator & Tester | DevToolbox">
+<meta name="twitter:description" content="Generate realistic mock JSON data from a simple schema, and send real HTTP requests to test any API endpoint — view status, headers and response body.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "API Response Mocker & Tester - DevToolbox", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any (runs in browser)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://www.devtoolbox.example/tools/api-mocker.html", "description": "Generate realistic mock JSON data from a simple schema, and send real HTTP requests to test any API endpoint — view status, headers and response body."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why did my request fail with a network error?", "acceptedAnswer": {"@type": "Answer", "text": "Browsers enforce CORS (Cross-Origin Resource Sharing): a server must explicitly allow requests from other origins. If the API you're testing doesn't send the right <code>Access-Control-Allow-Origin</code> header, the browser blocks the response — this is a server-side restriction, not a bug in this tool."}}, {"@type": "Question", "name": "Is the mock data realistic enough for demos?", "acceptedAnswer": {"@type": "Answer", "text": "It generates plausible values (names, emails, dates, UUIDs, numbers) per field type, good for prototyping UIs or seeding test databases, though it's randomly generated and not drawn from real-world datasets."}}, {"@type": "Question", "name": "Does this tool store or proxy my requests?", "acceptedAnswer": {"@type": "Answer", "text": "No — requests are sent directly from your browser to the target URL using <code>fetch()</code>; nothing passes through a DevToolbox server."}}, {"@type": "Question", "name": "Can I test a locally running Spring Boot API?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, as long as it's reachable from your browser (e.g. <code>http://localhost:8080/...</code>) and either has permissive CORS configured or you're testing same-origin."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.devtoolbox.example/index.html"}, {"@type": "ListItem", "position": 2, "name": "API Response Mocker & Tester", "item": "https://www.devtoolbox.example/tools/api-mocker.html"}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="../index.html" aria-label="DevToolbox home">
+    <svg class="mark" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="2" width="22" height="22" rx="3" stroke-width="1.6"/>
+      <path d="M8 9L5.5 13L8 17M18 9L20.5 13L18 17M14.5 7L11.5 19" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    DevToolbox
+  </a>
+  <div class="topbar-search">
+    <input type="search" id="tool-search" placeholder="Search tools&hellip; (JSON, JWT, UUID, cron&hellip;)" aria-label="Search tools">
+  </div>
+  <nav class="topbar-links">
+    <a href="../index.html#all-tools">All tools</a>
+    <a href="../about.html">About</a>
+  </nav>
+  <button class="nav-toggle" aria-label="Toggle tool menu">&#9776;</button>
+</header>
+<div class="shell">
+  <aside class="sidebar"><nav aria-label="Tool categories">
+<h4>Format & Convert</h4>
+<a href="../tools/json-formatter.html">JSON Formatter</a>
+<a href="../tools/sql-formatter.html">SQL Formatter</a>
+<a href="../tools/yaml-properties-converter.html">YAML ↔ Properties</a>
+<a href="../tools/base64-encoder-decoder.html">Base64 Encode/Decode</a>
+<a href="../tools/timestamp-converter.html">Timestamp Converter</a>
+<h4>Generate</h4>
+<a href="../tools/uuid-generator.html">UUID Generator</a>
+<a href="../tools/hash-generator.html">Hash Generator</a>
+<h4>Test & Debug</h4>
+<a href="../tools/jwt-decoder.html">JWT Decoder</a>
+<a href="../tools/regex-tester.html">Regex Tester</a>
+<a href="../tools/cron-parser.html">Cron Parser</a>
+<a href="../tools/api-mocker.html" class="active">API Mocker / Tester</a>
+<a href="../tools/diff-checker.html">Diff Checker</a>
+</nav></aside>
+  <main id="main">
+    <div class="tool-header">
+      <div class="crumbs"><a href="../index.html">Home</a> &rsaquo; <span>API Response Mocker & Tester</span></div>
+      <h1>API Response Mocker & Tester</h1>
+      <p class="lede">Two tools in one: generate fake JSON data from a simple field schema, and send a real HTTP request to any endpoint to inspect the response.</p>
+      <div class="badge-row"><span class="badge">Mock JSON</span><span class="badge">Live request</span><span class="badge">cURL export</span></div>
+    </div>
+
+    
+<div class="panel">
+  <h3 style="margin-top:0;">Mock data generator</h3>
+  <label for="mock-schema">Field schema (name: type, one per line)</label>
+  <textarea id="mock-schema" spellcheck="false" style="min-height:140px;">id: number
+name: string
+email: email
+active: boolean
+createdAt: date
+uuid: uuid</textarea>
+  <div class="btn-row">
+    <label style="margin:0;">Count
+      <input id="mock-count" type="number" min="1" max="100" value="3" style="width:80px; display:inline-block; margin-left:6px;">
+    </label>
+    <button class="primary" id="mock-generate">Generate mock JSON</button>
+  </div>
+  <div class="panel-title" style="margin-top:12px;"><span>Mock output</span><button class="small" data-copy-target="#mock-out">Copy</button></div>
+  <pre class="code-box" id="mock-out"></pre>
+</div>
+
+<div class="panel">
+  <h3 style="margin-top:0;">Request tester</h3>
+  <div class="grid-2">
+    <div>
+      <label for="req-method">Method</label>
+      <select id="req-method">
+        <option>GET</option><option>POST</option><option>PUT</option><option>PATCH</option><option>DELETE</option>
+      </select>
+    </div>
+    <div>
+      <label for="req-url">URL</label>
+      <input id="req-url" type="text" class="mono" placeholder="https://api.example.com/users/1">
+    </div>
+  </div>
+  <label for="req-headers" style="margin-top:12px;">Headers (one per line, <code>Key: Value</code>)</label>
+  <textarea id="req-headers" spellcheck="false" style="min-height:80px;" placeholder="Content-Type: application/json"></textarea>
+  <label for="req-body">Body (for POST/PUT/PATCH)</label>
+  <textarea id="req-body" spellcheck="false" style="min-height:100px;" placeholder='{"name": "Ada"}'></textarea>
+  <div class="btn-row">
+    <button class="primary" id="req-send">Send request</button>
+    <button class="ghost" id="req-curl">Copy as cURL</button>
+  </div>
+  <div id="req-status" class="status" role="status"></div>
+  <div class="panel-title" style="margin-top:12px;"><span>Response</span></div>
+  <pre class="code-box" id="req-out"></pre>
+  <p style="margin-top:10px; font-size:.85rem;">Requests are sent directly from your browser via <code>fetch()</code>. Endpoints without permissive CORS headers will be blocked by the browser — that's a security feature of the target server, not of this tool.</p>
+</div>
+
+
+    <section class="prose">
+      <h2>How to use the aPI Response Mocker & Tester</h2>
+      <ol><li><strong>Mock data:</strong> list field names and types (<code>string</code>, <code>number</code>, <code>boolean</code>, <code>email</code>, <code>date</code>, <code>uuid</code>, <code>name</code>), set a count, and generate a ready-to-use JSON array for tests or UI prototyping.</li><li><strong>Request tester:</strong> enter a method and URL, optional headers and a JSON body, then Send to see the real response status, headers and body.</li><li>Use “Copy as cURL” to turn your request into a command-line cURL call for sharing with teammates or pasting into a README.</li><li>If a live request fails immediately, it's almost always the target server's CORS policy blocking cross-origin browser requests — test from your backend or a tool like Postman instead for CORS-restricted APIs.</li></ol>
+      <h2>Frequently asked questions</h2>
+      <div class="faq-item"><h3>Why did my request fail with a network error?</h3><p>Browsers enforce CORS (Cross-Origin Resource Sharing): a server must explicitly allow requests from other origins. If the API you're testing doesn't send the right <code>Access-Control-Allow-Origin</code> header, the browser blocks the response — this is a server-side restriction, not a bug in this tool.</p></div><div class="faq-item"><h3>Is the mock data realistic enough for demos?</h3><p>It generates plausible values (names, emails, dates, UUIDs, numbers) per field type, good for prototyping UIs or seeding test databases, though it's randomly generated and not drawn from real-world datasets.</p></div><div class="faq-item"><h3>Does this tool store or proxy my requests?</h3><p>No — requests are sent directly from your browser to the target URL using <code>fetch()</code>; nothing passes through a DevToolbox server.</p></div><div class="faq-item"><h3>Can I test a locally running Spring Boot API?</h3><p>Yes, as long as it's reachable from your browser (e.g. <code>http://localhost:8080/...</code>) and either has permissive CORS configured or you're testing same-origin.</p></div>
+    </section>
+
+    <section class="related">
+      <h2>Related tools</h2>
+      <div class="cards"><a class="card" href="jwt-decoder.html"><span class="tag">Test & Debug</span><h3>JWT Decoder</h3><p>Paste a JSON Web Token to decode its header and payload, and check whether it ha&hellip;</p></a><a class="card" href="regex-tester.html"><span class="tag">Test & Debug</span><h3>Regex Tester</h3><p>Test a regular expression against sample text with live match highlighting, capt&hellip;</p></a><a class="card" href="cron-parser.html"><span class="tag">Test & Debug</span><h3>Cron Expression Parser</h3><p>Paste a cron expression to get a plain-English explanation and a preview of its &hellip;</p></a></div>
+    </section>
+  </main>
+</div>
+<footer>
+  <div>&copy; <span id="y"></span> DevToolbox &mdash; free tools for developers. Runs entirely in your browser; nothing you paste is uploaded.</div>
+  <div><a href="../about.html">About</a> &middot; <a href="../index.html#all-tools">All tools</a></div>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+<script src="../js/common.js"></script>
+<script>
+
+(function () {
+  function rand(n) { return Math.floor(Math.random() * n); }
+  var FIRST = ['Ada','Grace','Linus','Margaret','Dennis','Barbara','Alan','Katherine','Ken','Radia'];
+  var LAST = ['Lovelace','Hopper','Torvalds','Hamilton','Ritchie','Liskov','Turing','Johnson','Thompson','Perlman'];
+
+  function fakeValue(type) {
+    type = type.trim().toLowerCase();
+    switch (type) {
+      case 'number': case 'int': case 'integer': return rand(10000);
+      case 'float': return Number((Math.random() * 1000).toFixed(2));
+      case 'boolean': case 'bool': return Math.random() > 0.5;
+      case 'uuid': return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8); return v.toString(16);
+      });
+      case 'email': return (FIRST[rand(FIRST.length)] + '.' + LAST[rand(LAST.length)] + rand(99) + '@example.com').toLowerCase();
+      case 'name': return FIRST[rand(FIRST.length)] + ' ' + LAST[rand(LAST.length)];
+      case 'date': return new Date(Date.now() - rand(1e10)).toISOString();
+      case 'string': case 'text': default: return LAST[rand(LAST.length)] + '-' + rand(999);
+    }
+  }
+
+  document.getElementById('mock-generate').addEventListener('click', function () {
+    var schemaLines = document.getElementById('mock-schema').value.split('\n').map(function (l) { return l.trim(); }).filter(Boolean);
+    var fields = schemaLines.map(function (l) {
+      var parts = l.split(':');
+      return { name: (parts[0] || '').trim(), type: (parts[1] || 'string').trim() };
+    }).filter(function (f) { return f.name; });
+    var count = Math.min(100, Math.max(1, Number(document.getElementById('mock-count').value) || 1));
+    var results = [];
+    for (var i = 0; i < count; i++) {
+      var obj = {};
+      fields.forEach(function (f) { obj[f.name] = fakeValue(f.type); });
+      results.push(obj);
+    }
+    document.getElementById('mock-out').textContent = JSON.stringify(results, null, 2);
+  });
+
+  function parseHeaders(text) {
+    var h = {};
+    text.split('\n').forEach(function (line) {
+      var idx = line.indexOf(':');
+      if (idx > -1) h[line.slice(0, idx).trim()] = line.slice(idx + 1).trim();
+    });
+    return h;
+  }
+
+  document.getElementById('req-send').addEventListener('click', function () {
+    var method = document.getElementById('req-method').value;
+    var url = document.getElementById('req-url').value.trim();
+    var status = document.getElementById('req-status');
+    var out = document.getElementById('req-out');
+    if (!url) { setStatus(status, 'Enter a URL first.', false); return; }
+    var headers = parseHeaders(document.getElementById('req-headers').value);
+    var body = document.getElementById('req-body').value.trim();
+    var opts = { method: method, headers: headers };
+    if (method !== 'GET' && method !== 'DELETE' && body) opts.body = body;
+    setStatus(status, 'Sending&hellip;', true);
+    var start = performance.now();
+    fetch(url, opts).then(function (res) {
+      var ms = Math.round(performance.now() - start);
+      var headerLines = [];
+      res.headers.forEach(function (v, k) { headerLines.push(k + ': ' + v); });
+      return res.text().then(function (text) {
+        var pretty = text;
+        try { pretty = JSON.stringify(JSON.parse(text), null, 2); } catch (e) {}
+        out.textContent = 'Status: ' + res.status + ' ' + res.statusText + '  (' + ms + ' ms)\n\n' + headerLines.join('\n') + '\n\n' + pretty;
+        setStatus(status, res.ok ? 'Request succeeded.' : 'Request completed with an error status.', res.ok);
+      });
+    }).catch(function (err) {
+      setStatus(status, 'Request failed: ' + err.message + ' (often a CORS restriction on the target server).', false);
+      out.textContent = '';
+    });
+  });
+
+  document.getElementById('req-curl').addEventListener('click', function () {
+    var method = document.getElementById('req-method').value;
+    var url = document.getElementById('req-url').value.trim();
+    var headers = document.getElementById('req-headers').value.split('\n').map(function (l) { return l.trim(); }).filter(Boolean);
+    var body = document.getElementById('req-body').value.trim();
+    var parts = ['curl -X ' + method, "'" + url + "'"];
+    headers.forEach(function (h) { parts.push("-H '" + h + "'"); });
+    if (body && method !== 'GET') parts.push("-d '" + body.replace(/'/g, "'\\''") + "'");
+    navigator.clipboard.writeText(parts.join(' \\\n  '));
+    var btn = document.getElementById('req-curl');
+    var original = btn.textContent; btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = original; }, 1200);
+  });
+})();
+
+</script>
+</body>
+</html>
